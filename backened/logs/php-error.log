@@ -1,0 +1,282 @@
+[28-Jun-2026 22:38:31 Europe/Berlin] PHP Warning:  require_once(C:\Users\user\Desktop\Ghana Warehouse-Connect\backened/config/constants.php): Failed to open stream: No such file or directory in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 9
+[28-Jun-2026 22:38:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\user\Desktop\Ghana Warehouse-Connect\backened/config/constants.php' (include_path='C:\xampp\php\PEAR') in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 9
+[28-Jun-2026 22:38:39 Europe/Berlin] PHP Warning:  require_once(C:\Users\user\Desktop\Ghana Warehouse-Connect\backened/config/constants.php): Failed to open stream: No such file or directory in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 9
+[28-Jun-2026 22:38:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\user\Desktop\Ghana Warehouse-Connect\backened/config/constants.php' (include_path='C:\xampp\php\PEAR') in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 9
+[28-Jun-2026 23:01:53 Europe/Berlin] PHP Warning:  require_once(C:\Users\user\Desktop\Ghana Warehouse-Connect\backened/config/constants.php): Failed to open stream: No such file or directory in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 9
+[28-Jun-2026 23:01:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\user\Desktop\Ghana Warehouse-Connect\backened/config/constants.php' (include_path='C:\xampp\php\PEAR') in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 9
+[28-Jun-2026 23:01:55 Europe/Berlin] PHP Warning:  require_once(C:\Users\user\Desktop\Ghana Warehouse-Connect\backened/config/constants.php): Failed to open stream: No such file or directory in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 9
+[28-Jun-2026 23:01:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\user\Desktop\Ghana Warehouse-Connect\backened/config/constants.php' (include_path='C:\xampp\php\PEAR') in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 9
+[28-Jun-2026 23:38:38 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/1049): Unknown database 'ghana_warehouse_connect' in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[28-Jun-2026 23:38:38 Europe/Berlin] Database Error: Connection failed: Unknown database 'ghana_warehouse_connect'
+[28-Jun-2026 23:48:02 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.user' doesn't exist
+[28-Jun-2026 23:48:02 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.user' doesn't exist
+[28-Jun-2026 23:53:17 Europe/Berlin] Prepare failed: Unknown column 'UserID' in 'field list'
+[28-Jun-2026 23:53:17 Europe/Berlin] Prepare failed: Unknown column 'PasswordHash' in 'field list'
+[28-Jun-2026 23:54:44 Europe/Berlin] Prepare failed: Unknown column 'UserID' in 'field list'
+[28-Jun-2026 23:54:44 Europe/Berlin] Prepare failed: Unknown column 'PasswordHash' in 'field list'
+[29-Jun-2026 00:00:37 Europe/Berlin] Prepare failed: Unknown column 'UserID' in 'field list'
+[29-Jun-2026 00:00:37 Europe/Berlin] Prepare failed: Unknown column 'UserID' in 'field list'
+[29-Jun-2026 00:02:57 Europe/Berlin] Prepare failed: Unknown column 'UserID' in 'field list'
+[29-Jun-2026 00:02:57 Europe/Berlin] Prepare failed: Unknown column 'UserID' in 'field list'
+[29-Jun-2026 00:26:28 Europe/Berlin] Prepare failed: Unknown column 'UserID' in 'field list'
+[29-Jun-2026 00:27:16 Europe/Berlin] Prepare failed: Unknown column 'UserID' in 'field list'
+[29-Jun-2026 00:27:44 Europe/Berlin] Prepare failed: Unknown column 'UserID' in 'field list'
+[29-Jun-2026 00:28:25 Europe/Berlin] Prepare failed: Unknown column 'UserID' in 'field list'
+[29-Jun-2026 00:32:09 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\authcontroller.php on line 60
+[29-Jun-2026 00:32:09 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\authcontroller.php on line 68
+[29-Jun-2026 00:33:38 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\authcontroller.php on line 68
+[29-Jun-2026 00:33:50 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\authcontroller.php on line 68
+[29-Jun-2026 01:51:26 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.combo_package' doesn't exist
+[29-Jun-2026 01:54:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php:22
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php(12): Cart->getCart(3)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(86): CartController::getCart()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php on line 22
+[29-Jun-2026 19:15:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:22
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(14): Product->getAllProducts(1, 10, NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(56): ProductController::getAllProducts()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 22
+[29-Jun-2026 20:02:48 Europe/Berlin] Prepare failed: Unknown column 'TargetGroup' in 'field list'
+[29-Jun-2026 20:03:14 Europe/Berlin] Prepare failed: Unknown column 'TargetGroup' in 'field list'
+[29-Jun-2026 20:08:49 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\combopackage.php:25
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\combopackage.php(25): mysqli_stmt->bind_param('sssdssi', 'RICE group', '', 'student', '120', '2026-06-29', NULL, 'Draft', 1000)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ComboPackageController.php(74): ComboPackage->createPackage('RICE group', '', 'student', '120', '2026-06-29', NULL, 1000)
+#2 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(78): ComboPackageController::createPackage()
+#3 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\combopackage.php on line 25
+[30-Jun-2026 19:13:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(36): Order->createOrder(4, 'BundleOrder', 90, '123 Main St, Ac...', 'Accra', '0501234567')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(104): OrderController::createOrder()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 19
+[30-Jun-2026 19:14:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(36): Order->createOrder(4, 'BundleOrder', 90, '123 Main St, Ac...', 'Accra', '0501234567')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(104): OrderController::createOrder()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 19
+[30-Jun-2026 19:27:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(36): Order->createOrder(4, 'BundleOrder', 90, '123 Main St, Ac...', 'Accra', '0501234567')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(104): OrderController::createOrder()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 19
+[30-Jun-2026 19:38:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:40
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(4, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 40
+[01-Jul-2026 22:47:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:40
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(4, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 40
+[01-Jul-2026 22:54:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:40
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(4, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 40
+[01-Jul-2026 23:03:02 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, string given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 22
+[01-Jul-2026 23:03:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(36): Order->createOrder(4, 'bundle', 0, 'djgdjks', 'Accra', '0549149391')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(104): OrderController::createOrder()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 19
+[02-Jul-2026 15:11:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(36): Order->createOrder(4, 'bundle', 363, 'dfhdjgdhfu', 'Accra', '0549149391')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(104): OrderController::createOrder()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 19
+[02-Jul-2026 15:17:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(36): Order->createOrder(4, 'bundle', 363, 'dfhdjgdhfu', 'Accra', '0549149391')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(104): OrderController::createOrder()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 19
+[02-Jul-2026 15:25:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(36): Order->createOrder(4, 'bundle', 363, 'dfhdjgdhfu', 'Accra', '0549149391')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(104): OrderController::createOrder()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 19
+[02-Jul-2026 15:26:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(36): Order->createOrder(4, 'bundle', 363, 'dfhdjgdhfu', 'Accra', '0549149391')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(104): OrderController::createOrder()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 19
+[02-Jul-2026 15:35:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:66
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(46): Order->addOrderItem(4446, '1', '5', '59')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(104): OrderController::createOrder()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 66
+[02-Jul-2026 15:38:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:66
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(46): Order->addOrderItem(4447, '1', '5', '59')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(104): OrderController::createOrder()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 66
+[02-Jul-2026 15:39:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php:45
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(51): Cart->clearCart(4)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(104): OrderController::createOrder()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php on line 45
+[02-Jul-2026 15:41:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\delivery.php:18
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(55): Delivery->createDelivery(4449, 'dfhdjgdhfu', 'Accra', '0549149391')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(104): OrderController::createOrder()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\delivery.php on line 18
+[02-Jul-2026 16:10:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:75
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(4, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 75
+[02-Jul-2026 16:11:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:75
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(4, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 75
+[02-Jul-2026 16:14:03 Europe/Berlin] PHP Warning:  Undefined array key "user_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 16:14:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:75
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(NULL, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 75
+[02-Jul-2026 16:19:55 Europe/Berlin] PHP Warning:  Undefined array key "user_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 16:19:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:75
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(NULL, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 75
+[02-Jul-2026 16:20:56 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 16:20:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:75
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(NULL, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 75
+[02-Jul-2026 16:22:13 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 16:22:13 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:75
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(NULL, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 75
+[02-Jul-2026 16:24:22 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 16:24:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:75
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(NULL, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 75
+[02-Jul-2026 16:24:40 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 16:24:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:75
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(NULL, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 75
+[02-Jul-2026 16:29:07 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 16:29:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:75
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(NULL, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 75
+[02-Jul-2026 16:31:41 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 16:31:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:75
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(NULL, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 75
+[02-Jul-2026 16:33:01 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 16:33:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:75
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(NULL, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 75
+[02-Jul-2026 16:44:53 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "public" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 93
+[02-Jul-2026 16:47:27 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php(19): mysqli_stmt->bind_param('issdsss', 4, NULL, 'Pending', 363, 'Unpaid', 'dfhdjgdhfu', 'Accra', '0549149391')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(36): Order->createOrder(4, 'bundle', 363, 'dfhdjgdhfu', 'Accra', '0549149391')
+#2 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(104): OrderController::createOrder()
+#3 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 19
+[02-Jul-2026 21:14:50 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php(19): mysqli_stmt->bind_param('issdsss', 4, NULL, 'Pending', 363, 'Unpaid', 'dfhdjgdhfu', 'Accra', '0549149391')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(36): Order->createOrder(4, 'bundle', 363, 'dfhdjgdhfu', 'Accra', '0549149391')
+#2 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(104): OrderController::createOrder()
+#3 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 19
+[02-Jul-2026 21:19:12 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 21:19:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:40
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(NULL, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 40
+[02-Jul-2026 21:20:33 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 21:20:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:40
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(NULL, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 40
+[02-Jul-2026 21:32:44 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 21:32:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:52
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(NULL, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 52
+[02-Jul-2026 21:46:39 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 21:46:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:52
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(NULL, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 52
+[02-Jul-2026 21:49:02 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 21:49:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:52
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php(68): Order->getOrdersByUser(NULL, 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(107): OrderController::getMyOrders()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 52
+[02-Jul-2026 21:58:40 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 22:02:57 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 22:22:51 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
+[02-Jul-2026 22:55:32 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "{", expecting "function" or "const" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 97

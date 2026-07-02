@@ -1,0 +1,24 @@
+[2026-06-29 00:00:37] [INFO] User registered | Data: {"email":"emefa@gmail.com"}
+[2026-06-29 00:02:57] [INFO] User registered | Data: {"email":"john@gmail.com"}
+[2026-06-29 00:26:28] [WARNING] Failed login attempt | Data: {"email":"user@gmail.com"}
+[2026-06-29 00:27:16] [WARNING] Failed login attempt | Data: {"email":"emefa@gmail.com"}
+[2026-06-29 00:27:44] [WARNING] Failed login attempt | Data: {"email":"john@gmail.com"}
+[2026-06-29 00:28:25] [WARNING] Failed login attempt | Data: {"email":"john@gmail.com"}
+[2026-06-29 00:32:09] [INFO] User logged in | Data: {"email":"john@gmail.com"}
+[2026-06-29 00:33:38] [INFO] User logged in | Data: {"email":"john@gmail.com"}
+[2026-06-29 00:33:50] [INFO] User logged in | Data: {"email":"john@gmail.com"}
+[2026-06-29 00:35:33] [INFO] User logged in | Data: {"email":"john@gmail.com"}
+[2026-06-29 19:01:35] [INFO] User registered | Data: {"email":"emefa1@gmail.com"}
+[2026-06-29 19:09:36] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-06-29 19:35:19] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-06-29 19:43:53] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-06-29 20:12:14] [INFO] Combo package created | Data: {"packageId":1,"userId":4}
+[2026-06-30 18:35:46] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-06-30 18:46:40] [WARNING] Failed login attempt | Data: {"email":"emefa@gmail.com"}
+[2026-06-30 18:46:50] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-06-30 19:04:37] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-07-01 22:45:14] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-07-02 15:49:41] [INFO] Order created | Data: {"orderId":4450,"userId":4}
+[2026-07-02 16:02:08] [INFO] Order created | Data: {"orderId":4451,"userId":4}
+[2026-07-02 16:09:29] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-07-02 22:56:43] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
