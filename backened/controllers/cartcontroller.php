@@ -1,97 +1,138 @@
 <?php
-/**
- * Cart Controller
- */
+
 
 class CartController {
-    
-    public static function getCart() {
+
+
+    public static function getCart()
+    {
+
         $user = authenticateUser();
-        
+
+
         $cart = new Cart();
-        $items = $cart->getCart($user['userId']);
-        $total = $cart->getCartTotal($user['userId']);
-        
+
+
+        $items = $cart->getCart(
+            $user['userId']
+        );
+
+
+        $total = $cart->getCartTotal(
+            $user['userId']
+        );
+
+
         Response::success([
-            'items' => $items,
-            'total' => $total,
-            'itemCount' => count($items)
-        ], "Cart items retrieved");
+            "items"=>$items,
+            "total"=>$total,
+            "itemCount"=>count($items)
+
+        ], "Cart retrieved");
+
     }
-    
-    public static function addToCart() {
+
+
+
+    public static function addToCart()
+    {
+
         $user = authenticateUser();
-        $input = json_decode(file_get_contents("php://input"), true);
-        
-        if (!isset($input['productId']) || !isset($input['quantity'])) {
-            Response::error("Product ID and quantity required", BAD_REQUEST);
+
+
+        $input=json_decode(
+            file_get_contents("php://input"),
+            true
+        );
+
+
+        if(
+            empty($input['product_id']) ||
+            empty($input['quantity'])
+        ){
+
+            Response::error(
+                "Product ID and quantity required",
+                BAD_REQUEST
+            );
+
         }
-        
-        // Validate product exists
-        $product = new Product();
-        $prod = $product->getProductById($input['productId']);
-        if (!$prod) {
-            Response::error("Product not found", NOT_FOUND);
+
+
+
+        $cart=new Cart();
+
+
+
+        if(
+            $cart->addToCart(
+                $user['userId'],
+                $input['product_id'],
+                $input['quantity'],
+                $input['item_type'] ?? 'product',
+                $input['package_id'] ?? null,
+                date('Y-m-d H:i:s')
+            )
+        ){
+
+            Response::success(
+                null,
+                "Item added to cart",
+                CREATED
+            );
+
         }
-        
-        $cart = new Cart();
-        $result = $cart->addToCart($user['userId'], $input['productId'], $input['quantity']);
-        
-        if ($result) {
-            Response::success(null, "Item added to cart", CREATED);
-        } else {
-            Response::error("Failed to add item to cart", SERVER_ERROR);
-        }
+
+
+        Response::error(
+            "Unable to add item",
+            SERVER_ERROR
+        );
+
     }
-    
-    public static function updateCartItem() {
-        $user = authenticateUser();
-        $input = json_decode(file_get_contents("php://input"), true);
-        
-        if (!isset($input['cartId']) || !isset($input['quantity'])) {
-            Response::error("Cart ID and quantity required", BAD_REQUEST);
+
+
+
+
+
+    public static function removeFromCart()
+    {
+
+        $user=authenticateUser();
+
+
+        $input=json_decode(
+            file_get_contents("php://input"),
+            true
+        );
+
+
+        $cart=new Cart();
+
+
+        if(
+            $cart->removeFromCart(
+                $input['cartId']
+            )
+        ){
+
+            Response::success(
+                null,
+                "Removed from cart"
+            );
+
         }
-        
-        $cart = new Cart();
-        $result = $cart->updateQuantity($input['cartId'], $input['quantity']);
-        
-        if ($result) {
-            Response::success(null, "Cart updated");
-        } else {
-            Response::error("Failed to update cart", SERVER_ERROR);
-        }
+
+
+        Response::error(
+            "Failed",
+            SERVER_ERROR
+        );
+
     }
-    
-    public static function removeFromCart() {
-        $user = authenticateUser();
-        $input = json_decode(file_get_contents("php://input"), true);
-        
-        if (!isset($input['cartId'])) {
-            Response::error("Cart ID required", BAD_REQUEST);
-        }
-        
-        $cart = new Cart();
-        $result = $cart->removeFromCart($input['cartId']);
-        
-        if ($result) {
-            Response::success(null, "Item removed from cart");
-        } else {
-            Response::error("Failed to remove item", SERVER_ERROR);
-        }
-    }
-    
-    public static function clearCart() {
-        $user = authenticateUser();
-        
-        $cart = new Cart();
-        $result = $cart->clearCart($user['userId']);
-        
-        if ($result) {
-            Response::success(null, "Cart cleared");
-        } else {
-            Response::error("Failed to clear cart", SERVER_ERROR);
-        }
-    }
+
+
+
 }
 
 ?>

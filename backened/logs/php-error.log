@@ -280,3 +280,200 @@ Stack trace:
 [02-Jul-2026 22:02:57 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
 [02-Jul-2026 22:22:51 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 68
 [02-Jul-2026 22:55:32 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "{", expecting "function" or "const" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 97
+[03-Jul-2026 13:42:52 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "public", expecting end of file in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 40
+[03-Jul-2026 16:15:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "ComboPackageController" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php:69
+Stack trace:
+#0 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 69
+[03-Jul-2026 16:15:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "ComboPackageController" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php:69
+Stack trace:
+#0 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 69
+[03-Jul-2026 16:17:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "ComboPackageController" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php:71
+Stack trace:
+#0 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 71
+[03-Jul-2026 16:20:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "ComboPackageController" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php:71
+Stack trace:
+#0 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 71
+[03-Jul-2026 16:29:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "ComboPackageController" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php:73
+Stack trace:
+#0 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 73
+[03-Jul-2026 16:35:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "ComboPackageController" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php:74
+Stack trace:
+#0 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 74
+[03-Jul-2026 16:37:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "ComboPackageController" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php:74
+Stack trace:
+#0 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 74
+[03-Jul-2026 16:40:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "ComboPackageController" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php:70
+Stack trace:
+#0 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 70
+[03-Jul-2026 16:45:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "ComboPackage" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ComboPackageController.php:14
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(70): ComboPackageController::getAllPackages()
+#1 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ComboPackageController.php on line 14
+[03-Jul-2026 16:47:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "ComboPackages" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ComboPackageController.php:14
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(70): ComboPackageController::getAllPackages()
+#1 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ComboPackageController.php on line 14
+[03-Jul-2026 16:49:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "ComboPackages" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ComboPackageController.php:14
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(70): ComboPackageController::getAllPackages()
+#1 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ComboPackageController.php on line 14
+[03-Jul-2026 16:50:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "ComboPackages" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ComboPackageController.php:14
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(70): ComboPackageController::getAllPackages()
+#1 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ComboPackageController.php on line 14
+[03-Jul-2026 16:51:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "ComboPackages" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ComboPackageController.php:14
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(70): ComboPackageController::getAllPackages()
+#1 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ComboPackageController.php on line 14
+[06-Jul-2026 14:42:23 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 12
+[06-Jul-2026 14:42:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php:22
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php(12): Cart->getCart(NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(88): CartController::getCart()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php on line 22
+[06-Jul-2026 14:44:51 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 12
+[06-Jul-2026 14:44:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php:22
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php(12): Cart->getCart(NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(88): CartController::getCart()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php on line 22
+[06-Jul-2026 14:48:39 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 12
+[06-Jul-2026 14:48:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php:22
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php(12): Cart->getCart(NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(88): CartController::getCart()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php on line 22
+[06-Jul-2026 21:56:19 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 12
+[06-Jul-2026 21:56:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php:22
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php(12): Cart->getCart(NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(88): CartController::getCart()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php on line 22
+[06-Jul-2026 21:57:46 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 12
+[06-Jul-2026 21:57:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php:22
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php(12): Cart->getCart(NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(88): CartController::getCart()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php on line 22
+[06-Jul-2026 22:06:44 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 12
+[06-Jul-2026 22:06:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php:22
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php(12): Cart->getCart(NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(88): CartController::getCart()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php on line 22
+[06-Jul-2026 22:09:13 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 12
+[06-Jul-2026 22:09:13 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php:22
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php(12): Cart->getCart(NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(88): CartController::getCart()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php on line 22
+[06-Jul-2026 22:12:42 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 12
+[06-Jul-2026 22:12:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php:22
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php(12): Cart->getCart(NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(88): CartController::getCart()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php on line 22
+[06-Jul-2026 23:01:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php:153
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php(22): Cart->getCartTotal(NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(88): CartController::getCart()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php on line 153
+[07-Jul-2026 14:15:28 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[07-Jul-2026 14:15:28 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[07-Jul-2026 20:48:18 Europe/Berlin] PHP Warning:  Undefined array key "target_group" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ComboPackageController.php on line 45
+[07-Jul-2026 20:56:39 Europe/Berlin] PHP Warning:  Undefined array key "target_group" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ComboPackageController.php on line 45
+[07-Jul-2026 21:00:30 Europe/Berlin] PHP Warning:  Undefined array key "target_group" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ComboPackageController.php on line 45
+[07-Jul-2026 22:10:05 Europe/Berlin] PHP Warning:  Array to string conversion in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\authcontroller.php on line 79
+[07-Jul-2026 22:13:05 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\authcontroller.php on line 79
+[07-Jul-2026 22:13:24 Europe/Berlin] PHP Warning:  Undefined array key "userid" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\authcontroller.php on line 79
+[07-Jul-2026 22:14:07 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\authcontroller.php on line 79
+[07-Jul-2026 22:27:45 Europe/Berlin] Prepare failed: Unknown column 'pi.PackageID' in 'where clause'
+[07-Jul-2026 22:28:35 Europe/Berlin] Prepare failed: Unknown column 'pi.PackageID' in 'where clause'
+[07-Jul-2026 22:45:02 Europe/Berlin] Prepare failed: Unknown column 'i.StockQuantity' in 'where clause'
+[07-Jul-2026 22:46:23 Europe/Berlin] Prepare failed: Unknown column 'i.StockQuantity' in 'where clause'
+[09-Jul-2026 13:51:51 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 13:56:30 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 13:56:38 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 14:00:07 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 14:02:25 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 14:03:36 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 14:08:14 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 14:10:23 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 14:10:56 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 14:13:00 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 14:14:36 Europe/Berlin] PHP Warning:  Undefined array key "Userid" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 14:18:55 Europe/Berlin] PHP Warning:  Undefined array key "Userid" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 14:21:46 Europe/Berlin] PHP Warning:  Undefined array key "Userid" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 14:24:08 Europe/Berlin] PHP Warning:  Undefined array key "Userid" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 14:27:12 Europe/Berlin] PHP Warning:  Undefined array key "Userid" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 17
+[09-Jul-2026 14:31:58 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 69
+[09-Jul-2026 14:32:04 Europe/Berlin] PHP Warning:  Undefined array key "UserID" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php on line 69
+[09-Jul-2026 18:21:30 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[09-Jul-2026 18:21:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(32): Payment->createPayment(0, 'emefa', 50, 'Mobile Money')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(106): PaymentController::initiatePayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 19
+[09-Jul-2026 18:24:23 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[09-Jul-2026 18:24:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(32): Payment->createPayment(0, 'emefa', 50, 'Mobile Money')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(106): PaymentController::initiatePayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 19
+[09-Jul-2026 21:48:20 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[09-Jul-2026 21:48:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(32): Payment->createPayment(0, 'emefa', 50, 'Mobile Money')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(106): PaymentController::initiatePayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 19
+[09-Jul-2026 21:53:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php:170
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\cartcontroller.php(22): Cart->getCartTotal(4)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(90): CartController::getCart()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php on line 170
+[09-Jul-2026 22:23:30 Europe/Berlin] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\cart.php on line 40
+[09-Jul-2026 22:35:11 Europe/Berlin] PHP Warning:  Undefined array key "orderType" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 41
+[09-Jul-2026 22:35:11 Europe/Berlin] PHP Warning:  Undefined array key "customerPhone" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 45
+[09-Jul-2026 22:38:26 Europe/Berlin] PHP Warning:  Undefined array key "orderType" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 41
+[09-Jul-2026 22:38:26 Europe/Berlin] PHP Warning:  Undefined array key "customerPhone" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 45
+[09-Jul-2026 22:48:58 Europe/Berlin] PHP Warning:  Undefined array key "orderType" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 41
+[09-Jul-2026 22:48:58 Europe/Berlin] PHP Warning:  Undefined array key "customerPhone" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 45
+[09-Jul-2026 22:50:21 Europe/Berlin] PHP Warning:  Undefined array key "orderType" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 41
+[09-Jul-2026 22:50:21 Europe/Berlin] PHP Warning:  Undefined array key "customerPhone" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 45
+[09-Jul-2026 22:51:12 Europe/Berlin] PHP Warning:  Undefined array key "customerPhone" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 45
+[09-Jul-2026 22:51:12 Europe/Berlin] PHP Warning:  Undefined array key "customerPhone" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 80
+[09-Jul-2026 22:52:00 Europe/Berlin] PHP Warning:  Undefined array key "customerPhone" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 45
+[09-Jul-2026 22:52:00 Europe/Berlin] PHP Warning:  Undefined array key "customerPhone" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 80
+[09-Jul-2026 22:52:11 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[09-Jul-2026 22:52:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(32): Payment->createPayment(0, 'emefa', 50, 'Mobile Money')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(106): PaymentController::initiatePayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 19

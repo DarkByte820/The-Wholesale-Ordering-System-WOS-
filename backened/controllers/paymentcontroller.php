@@ -5,24 +5,47 @@
 
 class PaymentController {
     
-    public static function initiatePayment() {
-        $user = authenticateUser();
-        $input = json_decode(file_get_contents("php://input"), true);
-        
-        if (!isset($input['orderId']) || !isset($input['provider']) || !isset($input['amount'])) {
-            Response::error("Missing required fields", BAD_REQUEST);
-        }
-        
-        $payment = new Payment();
-        $result = $payment->createPayment($input['orderId'], $input['provider'], $input['amount'], $input['paymentMethod'] ?? 'Other');
-        
-        if ($result) {
-            Logger::info("Payment initiated", ['orderId' => $input['orderId'], 'provider' => $input['provider']]);
-            Response::success($result, "Payment initiated", CREATED);
-        } else {
-            Response::error("Failed to initiate payment", SERVER_ERROR);
-        }
+   public static function initiatePayment()
+{
+    authenticateUser();
+
+    $input = json_decode(file_get_contents("php://input"), true);
+
+    if (!$input) {
+        Response::error("Invalid JSON data", BAD_REQUEST);
     }
+
+    if (
+        empty($input['order_id']) ||
+        empty($input['provider']) ||
+        empty($input['amount'])
+    ) {
+        Response::error("orderId, provider and amount are required", BAD_REQUEST);
+    }
+
+    $payment = new Payment();
+
+    $result = $payment->createPayment(
+        (int)$input['orderId'],
+        trim($input['provider']),
+        (float)$input['amount'],
+        $input['paymentMethod'] ?? 'Mobile Money'
+    );
+
+    if (!$result) {
+        Response::error("Unable to initiate payment", SERVER_ERROR);
+    }
+
+    Response::success(
+        [
+            "paymentId" => $result["paymentId"],
+            "transactionReference" => $result["transactionReference"],
+            "status" => "Initiated"
+        ],
+        "Payment initiated successfully",
+        CREATED
+    );
+}
     
     public static function verifyPayment() {
         $input = json_decode(file_get_contents("php://input"), true);
@@ -58,6 +81,25 @@ class PaymentController {
             Response::error("Payment not found", NOT_FOUND);
         }
     }
+
+    public static function checkStatus() {
+        $input = json_decode(file_get_contents("php://input"), true);
+        
+        if (!isset($input['transactionReference'])) {
+            Response::error("Transaction reference required", BAD_REQUEST);
+        }
+        
+        $payment = new Payment();
+        $status = $payment->checkPaymentStatus($input['orderId']);
+        
+        if ($status) {
+            Response::success(['status' => $status], "Payment status retrieved");
+        } else {
+            Response::error("Failed to retrieve payment status", SERVER_ERROR);
+        }
+    }
 }
+
+
 
 ?>

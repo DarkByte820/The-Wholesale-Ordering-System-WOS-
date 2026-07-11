@@ -19,7 +19,7 @@ class AuditLog {
         
         $device_info = $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown';
         
-        $stmt = $this->db->prepare("INSERT INTO audit_log (UserID, Action, EntityType, EntityID, OldValue, NewValue, IPAddress, DeviceInfo, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $this->db->prepare("INSERT INTO audit_log (User_ID, Action, EntityType, EntityID, OldValue, NewValue, IPAddress, DeviceInfo, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         
         if (!$stmt) {
             error_log("Prepare failed: " . $this->db->error);
@@ -103,6 +103,27 @@ class AuditLog {
         $stmt->bind_param("s", $action);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+    public static function getAuditTrail() {
+        $user = authenticateUser();
+        
+        if ($user['role'] !== 'SystemAdmin') {
+            Response::error("Insufficient permissions", FORBIDDEN);
+        }
+        
+        $db = new Database();
+        $conn = $db->connect();
+        
+        $stmt = $conn->prepare("SELECT al.*, u.Name as UserName FROM audit_log al JOIN user u ON al.UserID = u.UserID ORDER BY al.Timestamp DESC");
+        
+        if (!$stmt) {
+            Response::error("Database error", SERVER_ERROR);
+        }
+        
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        
+        Response::success($result, "Audit trail retrieved successfully");
     }
 }
 

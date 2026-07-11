@@ -61,6 +61,25 @@ class AuditLogController {
         
         Response::success($logs, "Audit logs retrieved for date range");
     }
+    public static function getAuditTrail() {
+        $user = authenticateUser();
+        
+        if ($user['role'] !== 'SystemAdmin' && $user['role'] !== 'WarehouseAdmin') {
+            Response::error("Insufficient permissions", FORBIDDEN);
+        }
+        
+        $entity_type = isset($_GET['entityType']) ? $_GET['entityType'] : null;
+        $entity_id = isset($_GET['entityId']) ? (int)$_GET['entityId'] : null;
+        
+        if (!$entity_type || !$entity_id) {
+            Response::error("Entity type and ID required", BAD_REQUEST);
+        }
+        
+        $audit = new AuditLog();
+        $trail = $audit->getAuditTrail($entity_type, $entity_id);
+        
+        Response::success($trail, "Audit trail retrieved");
+    }
 }
 
 ?>

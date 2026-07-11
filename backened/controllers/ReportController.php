@@ -161,6 +161,86 @@ class ReportController {
         
         Response::success($data, "Dashboard metrics retrieved");
     }
+    public static function salesReport() {
+        $user = authenticateUser();
+        
+        if ($user['role'] !== 'WarehouseAdmin' && $user['role'] !== 'SystemAdmin') {
+            Response::error("Insufficient permissions", FORBIDDEN);
+        }
+        
+        $start_date = isset($_GET['startDate']) ? $_GET['startDate'] : date('Y-m-01');
+        $end_date = isset($_GET['endDate']) ? $_GET['endDate'] : date('Y-m-t');
+        
+        $reportService = new ReportService();
+        $reportData = $reportService->getSalesReport($start_date, $end_date);
+        
+        Response::success($reportData, "Sales report generated successfully");
+    }
+    public static function inventoryReport() {
+        $user = authenticateUser();
+        
+        if ($user['role'] !== 'WarehouseAdmin' && $user['role'] !== 'SystemAdmin') {
+            Response::error("Insufficient permissions", FORBIDDEN);
+        }
+        
+        $reportService = new ReportService();
+        $reportData = $reportService->getInventoryReport();
+        
+        Response::success($reportData, "Inventory report generated successfully");
+    }
+    public static function customerReport() {
+        $user = authenticateUser();
+        $start_date = isset($_GET['startDate']) ? $_GET['startDate'] : date('Y-m-01');
+        $end_date = isset($_GET['endDate']) ? $_GET['endDate'] : date('Y-m-t');
+
+        if ($user['role'] !== 'WarehouseAdmin' && $user['role'] !== 'SystemAdmin') {
+            Response::error("Insufficient permissions", FORBIDDEN);
+        }
+        
+        $reportService = new ReportService();
+        $reportData = $reportService->getCustomerReport($start_date, $end_date);
+        
+        Response::success($reportData, "Customer report generated successfully");
+    }
+    public static function paymentReport() {
+        $user = authenticateUser();
+        $start_date = isset($_GET['startDate']) ? $_GET['startDate'] : date('Y-m-01');
+        $end_date = isset($_GET['endDate']) ? $_GET['endDate'] : date('Y-m-t');
+
+        if ($user['role'] !== 'WarehouseAdmin' && $user['role'] !== 'SystemAdmin') {
+            Response::error("Insufficient permissions", FORBIDDEN);
+        }
+       
+        $reportService = new ReportService();
+        $reportData = $reportService->getPaymentReport($start_date, $end_date);
+        
+        Response::success($reportData, "Payment report generated successfully");
+    }
+    public static function deliveryReport() {
+        $user = authenticateUser();
+        $start_date = isset($_GET['startDate']) ? $_GET['startDate'] : date('Y-m-01');
+        $end_date = isset($_GET['endDate']) ? $_GET['endDate'] : date('Y-m-t');
+        if ($user['role'] !== 'WarehouseAdmin' && $user['role'] !== 'SystemAdmin') {
+            Response::error("Insufficient permissions", FORBIDDEN);
+        }
+        
+        $reportService = new ReportService();
+        $reportData = $reportService->getDeliveryReport($start_date, $end_date);
+        
+        Response::success($reportData, "Delivery report generated successfully");
+    }
+    public static function lowStockReport() {
+        $user = authenticateUser();
+        
+        if ($user['role'] !== 'WarehouseAdmin' && $user['role'] !== 'SystemAdmin') {
+            Response::error("Insufficient permissions", FORBIDDEN);
+        }
+        
+        $reportService = new ReportService();
+        $reportData = $reportService->getLowStockReport();
+        
+        Response::success($reportData, "Low stock report generated successfully");
+    }
 }
 
 ?>

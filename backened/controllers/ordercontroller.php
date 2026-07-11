@@ -3,117 +3,242 @@
  * Order Controller
  */
 
-class OrderController {
-    
-    public static function createOrder() {
+class OrderController
+{
+    public static function createOrder()
+    {
         $user = authenticateUser();
         $input = json_decode(file_get_contents("php://input"), true);
-        
-        if (!isset($input['orderType']) || !isset($input['items']) || !isset($input['deliveryAddress']) || !isset($input['customerPhone'])) {
+
+        if (
+            !isset($input['OrderType']) ||
+            !isset($input['items']) ||
+            !isset($input['deliveryAddress']) ||
+            !isset($input['CustomerPhone'])
+        ) {
             Response::error("Missing required fields", BAD_REQUEST);
+            return;
         }
-        
-        $total_amount = 0;
+
+        $totalAmount = 0;
         $order = new Order();
-        $product = new Product();
         $cart = new Cart();
-        
-        // Calculate total
+
+        // Calculate total safely
         foreach ($input['items'] as $item) {
-            if (isset($item['id']) && isset($item['price']) && isset($item['quantity'])) {
-                $total_amount += $item['price'] * $item['quantity'];
+            if (
+                isset($item['price']) &&
+                isset($item['quantity'])
+            ) {
+                $totalAmount += ((float)$item['price'] * (int)$item['quantity']);
             }
         }
-        
-        $delivery_city = isset($input['deliveryCity']) ? $input['deliveryCity'] : 'Accra';
-        
-        $order_id = $order->createOrder(
+
+        $deliveryCity = $input['deliveryCity'] ?? 'Accra';
+
+        $orderId = $order->createOrder(
             $user['userId'],
-            $input['orderType'],
-            $total_amount,
+            $input['OrderType'],
+            $totalAmount,
             $input['deliveryAddress'],
-            $delivery_city,
+            $deliveryCity,
             $input['customerPhone']
         );
-        
-        if (!$order_id) {
-            Response::error("Failed to create orders", SERVER_ERROR);
+
+        if (!$orderId) {
+            Response::error("Failed to create order", SERVER_ERROR);
+            return;
         }
-        
-        // Add items to order
+
+        // Add order items
         foreach ($input['items'] as $item) {
-            if (isset($item['id']) && isset($item['quantity']) && isset($item['price'])) {
-                $order->addOrderItem($order_id, $item['id'], $item['quantity'], $item['price']);
+            if (
+                isset($item['id']) &&
+                isset($item['quantity']) &&
+                isset($item['price'])
+            ) {
+                $order->addOrderItem(
+                    $orderId,
+                    $item['id'],
+                    $item['quantity'],
+                    $item['price']
+                );
             }
         }
-        
-        // Clear cart
-        $cart->clearCart($user['userId']);
-        
-        // Create delivery record
+
+        // Clear cart safely (only if user exists)
+        if (isset($user['userId'])) {
+            $cart->clearCart($user['userId']);
+        }
+
+        // Delivery record
         $delivery = new Delivery();
-        $delivery->createDelivery($order_id, $input['deliveryAddress'], $delivery_city, $input['customerPhone']);
-        
-        Logger::info("Order created", ['orderId' => $order_id, 'userId' => $user['userId']]);
-        
-        Response::success(['orderId' => $order_id, 'totalAmount' => $total_amount], "Order created successfully", CREATED);
+        $delivery->createDelivery(
+            $orderId,
+            $input['deliveryAddress'],
+            $deliveryCity,
+            $input['customerPhone']
+        );
+
+        Logger::info("Order created", [
+            'orderId' => $orderId,
+            'userId' => $user['userId']
+        ]);
+
+        Response::success(
+            [
+                'orderId' => $orderId,
+                'totalAmount' => $totalAmount
+            ],
+            "Order created successfully",
+            CREATED
+        );
     }
-    
-    public static function getMyOrders() {
+
+    public static function getMyOrders()
+    {
         $user = authenticateUser();
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : ITEMS_PER_PAGE;
-        
+
         $order = new Order();
         $orders = $order->getOrdersByUser($user['userId'], $page, $limit);
-        
+
         Response::success($orders, "Orders retrieved successfully");
     }
-    
-    public static function getOrderById() {
+
+    public static function getOrderById()
+    {
         $user = authenticateUser();
-        $order_id = isset($_GET['id']) ? (int)$_GET['id'] : null;
-        
-        if (!$order_id) {
+        $orderId = isset($_GET['id']) ? (int)$_GET['id'] : null;
+
+        if (!$orderId) {
             Response::error("Order ID required", BAD_REQUEST);
+            return;
         }
-        
+
         $order = new Order();
-        $order_data = $order->getOrderById($order_id);
-        
-        if (!$order_data) {
+        $orderData = $order->getOrderById($orderId);
+
+        if (!$orderData) {
             Response::error("Order not found", NOT_FOUND);
+            return;
         }
-        
-        // Check authorization
-        if ($order_data['UserID'] != $user['userId'] && $user['role'] !== 'WarehouseAdmin') {
+
+        // FIXED: safe key check (your logs showed undefined array key issues)
+        if (
+            ($orderData['UserID'] ?? null) != $user['userId'] &&
+            ($user['role'] ?? '') !== 'WarehouseAdmin'
+        ) {
             Response::error("Unauthorized", FORBIDDEN);
+            return;
         }
         
-        $order_items = $order->getOrderItems($order_id);
-        $order_data['items'] = $order_items;
-        
-        Response::success($order_data, "Order retrieved successfully");
+
     }
-    
-    public static function updateOrderStatus() {
-        authenticateUser(); // Just verify token
+
+public function getOrderItems($orderId) {
+
+    global $conn;
+
+    $sql = "SELECT * FROM order_items WHERE order_id = ?";
+    $stmt = $conn->prepare($sql);
+
+    if (!$stmt) {
+        die("Prepare failed: " . $conn->error);
+    }
+
+    $stmt->bind_param("i", $orderId);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $items = [];
+
+    while ($row = $result->fetch_assoc()) {
+        $items[] = $row;
+    }
+
+    return $items;
+}
+    public static function updateOrderStatus()
+    {
+        authenticateUser();
+
         $input = json_decode(file_get_contents("php://input"), true);
-        
+
         if (!isset($input['orderId']) || !isset($input['status'])) {
             Response::error("Order ID and status required", BAD_REQUEST);
+            return;
         }
-        
+
         $order = new Order();
         $result = $order->updateOrderStatus($input['orderId'], $input['status']);
-        
-        if ($result) {
-            Logger::info("Order status updated", ['orderId' => $input['orderId'], 'status' => $input['status']]);
-            Response::success(null, "Order status updated");
-        } else {
+
+        if (!$result) {
             Response::error("Failed to update order status", SERVER_ERROR);
+            return;
         }
+
+        Logger::info("Order status updated", [
+            'orderId' => $input['orderId'],
+            'status' => $input['status']
+        ]);
+
+        Response::success(null, "Order status updated");
+    }
+
+    public static function getAllOrders()
+    {
+        authenticateUser();
+
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : ITEMS_PER_PAGE;
+
+        $order = new Order();
+        $orders = $order->getAllOrders($page, $limit);
+
+        Response::success($orders, "All orders retrieved successfully");
+    }
+    public static function cancelOrder()
+    {
+        $user = authenticateUser();
+        $input = json_decode(file_get_contents("php://input"), true);
+
+        if (!isset($input['orderId'])) {
+            Response::error("Order ID required", BAD_REQUEST);
+            return;
+        }
+
+        $order = new Order();
+        $orderData = $order->getOrderById($input['orderId']);
+
+        if (!$orderData) {
+            Response::error("Order not found", NOT_FOUND);
+            return;
+        }
+
+        if ($orderData['UserID'] != $user['userId']) {
+            Response::error("Unauthorized", FORBIDDEN);
+            return;
+        }
+
+        if ($orderData['Status'] === 'Cancelled') {
+            Response::error("Order is already cancelled", BAD_REQUEST);
+            return;
+        }
+
+        $result = $order->updateOrderStatus($input['orderId'], 'Cancelled');
+
+        if (!$result) {
+            Response::error("Failed to cancel order", SERVER_ERROR);
+            return;
+        }
+
+        Logger::info("Order cancelled", [
+            'orderId' => $input['orderId'],
+            'userId' => $user['userId']
+        ]);
+
+        Response::success(null, "Order cancelled successfully");
     }
 }
-
-?>
