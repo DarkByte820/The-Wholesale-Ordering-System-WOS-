@@ -4,7 +4,7 @@
  * Handles System Notifications & Alerts
  */
 
-class Notifications {
+class Notification {
     private $db;
     
     public function __construct() {
@@ -16,7 +16,7 @@ class Notifications {
     public function createNotification($user_id, $event_type, $message, $channel = 'All', $order_id = null) {
         $status = 'Pending';
         
-        $stmt = $this->db->prepare("INSERT INTO Notifications (UserID, EventType, Message, NotificationChannel, Status, RelatedOrderID) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt = $this->db->prepare("INSERT INTO Notifications (User_ID, Event_Type, Message, Notification_id, Status, created_at) VALUES (?, ?, ?, ?, ?, ?)");
         
         if (!$stmt) {
             error_log("Prepare failed: " . $this->db->error);
@@ -36,7 +36,7 @@ class Notifications {
     public function getNotifications($user_id, $page = 1, $limit = ITEMS_PER_PAGE) {
         $offset = ($page - 1) * $limit;
         
-        $stmt = $this->db->prepare("SELECT * FROM Notifications WHERE UserID = ? ORDER BY Timestamp DESC LIMIT ? OFFSET ?");
+        $stmt = $this->db->prepare("SELECT * FROM Notifications WHERE User_ID = ? ORDER BY created_at DESC LIMIT ? OFFSET ?");
         
         if (!$stmt) {
             error_log("Prepare failed: " . $this->db->error);
@@ -51,7 +51,7 @@ class Notifications {
     public function getUnreadNotifications($user_id) {
         $status = 'Pending';
         
-        $stmt = $this->db->prepare("SELECT * FROM Notifications WHERE UserID = ? AND Status = ? ORDER BY Timestamp DESC");
+        $stmt = $this->db->prepare("SELECT * FROM Notifications WHERE User_ID = ? AND Status = ? ORDER BY created_at DESC");
         
         if (!$stmt) {
             error_log("Prepare failed: " . $this->db->error);
@@ -66,7 +66,7 @@ class Notifications {
     public function getUnreadCount($user_id) {
         $status = 'Pending';
         
-        $stmt = $this->db->prepare("SELECT COUNT(*) as count FROM Notifications WHERE UserID = ? AND Status = ?");
+        $stmt = $this->db->prepare("SELECT COUNT(*) as count FROM Notifications WHERE User_ID = ? AND Status = ?");
         
         if (!$stmt) {
             error_log("Prepare failed: " . $this->db->error);
@@ -97,7 +97,7 @@ class Notifications {
         $status = 'Read';
         $pending = 'Pending';
         
-        $stmt = $this->db->prepare("UPDATE Notifications SET Status = ?, ReadDate = NOW() WHERE UserID = ? AND Status = ?");
+        $stmt = $this->db->prepare("UPDATE Notifications SET Status = ?, ReadDate = NOW() WHERE User_ID = ? AND Status = ?");
         
         if (!$stmt) {
             error_log("Prepare failed: " . $this->db->error);
@@ -110,7 +110,7 @@ class Notifications {
     
     public function sendNotificationByEvent($order_id, $event_type) {
         // Get order and user info
-        $order_stmt = $this->db->prepare("SELECT UserID, Status, TotalAmount FROM `order` WHERE OrderID = ?");
+        $order_stmt = $this->db->prepare("SELECT UserID, Status, TotalAmount FROM `orders` WHERE OrderID = ?");
         
         if (!$order_stmt) {
             error_log("Prepare failed: " . $this->db->error);

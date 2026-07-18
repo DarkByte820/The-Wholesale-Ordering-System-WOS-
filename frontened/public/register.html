@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Ghana Warehouse Connect</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="auth-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🏭</span> GWC
+            </a>
+        </div>
+    </nav>
+
+    <!-- Register Container -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <h1>Create Account</h1>
+            <p class="auth-subtitle">Join Ghana Warehouse Connect</p>
+
+            <div id="errorMessages" class="error-container"></div>
+
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="John Doe" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="john@example.com" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        placeholder="0501234567" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Account Type</label>
+                    <select id="role" name="role" required>
+                        <option value="">Select account type</option>
+                        <option value="BundleCustomer">Bundle Customer (Students/Community)</option>
+                        <option value="WholesaleCustomer">Wholesale Customer (Shop Owner)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="••••••••" 
+                        required
+                    >
+                    <small>Min 8 chars, 1 uppercase, 1 lowercase, 1 number</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        name="confirmPassword" 
+                        placeholder="••••••••" 
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    Create Account
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Login here</a></p>
+            </div>
+        </div>
+
+        <!-- Side Image -->
+        <div class="auth-image" style="background-image: url('../images/banners/warehouse6.png');"></div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/validation.js"></script>
+    <script src="../js/utils.js"></script>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                password: document.getElementById('password').value,
+                confirmPassword: document.getElementById('confirmPassword').value,
+                role: document.getElementById('role').value
+            };
+
+            const errors = validateRegisterForm(formData);
+            const errorMessages = document.getElementById('errorMessages');
+
+            errorMessages.innerHTML = '';
+
+            if (errors.length > 0) {
+                errorMessages.innerHTML = errors.map(err => 
+                    `<div class="alert alert-error">${err}</div>`
+                ).join('');
+                return;
+            }
+
+            const response = await API.register(
+                formData.name,
+                formData.email,
+                formData.phone,
+                formData.password,
+                formData.role
+            );
+
+            if (response.success) {
+                showAlert('Account created successfully! Logging you in...', 'success');
+                setTimeout(() => {
+                    localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('user', JSON.stringify(response.data.user));
+                    window.location.href = 'catalog.html';
+                }, 1500);
+            } else {
+                errorMessages.innerHTML = `<div class="alert alert-error">${response.message}</div>`;
+            }
+        });
+    </script>
+</body>
+</html>

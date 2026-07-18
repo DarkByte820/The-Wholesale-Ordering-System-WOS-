@@ -59,14 +59,30 @@ try {
     }
 
     // ========== PRODUCTS ==========
-    elseif ($request_path === 'api/products' && $method === 'GET') {
-        ProductController::getAllProducts();
+    elseif ($request_path === 'api/products' && $method === 'POST') {
+        ProductController::createProduct();
+    }
+    elseif (preg_match('#^api/products/(\d+)$#', $request_path, $m) && $method === 'PUT') {
+        ProductController::updateProduct();
+    }
+    elseif ($request_path === 'api/products/search' && $method === 'GET') {
+        ProductController::searchProducts();
+
+    }elseif (preg_match('#^api/products/category/([^/]+)$#', $request_path, $m) && $method === 'GET') {
+        $_GET['category'] = $m[1];
+        ProductController::getByCategory();
+
+    }
+    
+    
+    elseif (preg_match('#^api/products/(\d+)$#', $request_path, $m) && $method === 'DELETE') {
+        $_GET['id'] = $m[1];
+        ProductController::deleteProduct();
     }
     elseif (preg_match('#^api/products/(\d+)$#', $request_path, $m) && $method === 'GET') {
         $_GET['id'] = $m[1];
         ProductController::getProductById();
     }
-
     // ========== COMBO PACKAGES ==========
     elseif ($request_path === 'api/combo-packages' && $method === 'GET') {
         ComboPackageController::getAllPackages();
@@ -136,13 +152,10 @@ try {
     elseif ($request_path === 'api/invoices/generate' && $method === 'POST') {
         InvoiceController::generateInvoice();
     }
-    elseif (preg_match('#^api/invoices/pdf/(\d+)$#', $request_path, $m) && $method === 'GET') {
-        $_GET['invoiceId'] = $m[1];
-        InvoiceController::generatePDF();
-    }
-    elseif ($request_path === 'api/invoices/email' && $method === 'POST') {
-        InvoiceController::emailInvoice();
-    }
+   elseif (preg_match('#^api/invoices/pdf/(\d+)$#', $request_path, $m) && $method === 'GET') {
+    $_GET['invoice_Id'] = $m[1];
+    InvoiceController::generatePDF();
+}
 
     // ========== DASHBOARD ==========
     elseif ($request_path === 'api/dashboard' && $method === 'GET') {

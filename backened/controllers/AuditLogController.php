@@ -9,7 +9,7 @@ class AuditLogController {
         $user = authenticateUser();
         
         // Only admins can view audit logs
-        if ($user['role'] !== 'SystemAdmin' && $user['role'] !== 'WarehouseAdmin') {
+        if ($user['role'] !== 'system_admin' && $user['role'] !== 'warehouse_admin') {
             Response::error("Insufficient permissions", FORBIDDEN);
         }
         
@@ -25,12 +25,13 @@ class AuditLogController {
     public static function getAuditLogsByEntity() {
         $user = authenticateUser();
         
-        if ($user['role'] !== 'SystemAdmin' && $user['role'] !== 'WarehouseAdmin') {
+        if ($user['role'] !== 'system_admin' && $user['role'] !== 'warehouse_admin') {
             Response::error("Insufficient permissions", FORBIDDEN);
         }
         
-        $entity_type = isset($_GET['entityType']) ? $_GET['entityType'] : null;
-        $entity_id = isset($_GET['entityId']) ? (int)$_GET['entityId'] : null;
+        $input = json_decode(file_get_contents("php://input"), true);
+        $entity_type = isset($input['entityType']) ? $input['entityType'] : null;
+        $entity_id = isset($input['entityId']) ? (int)$input['entityId'] : null;
         
         if (!$entity_type || !$entity_id) {
             Response::error("Entity type and ID required", BAD_REQUEST);
@@ -45,7 +46,7 @@ class AuditLogController {
     public static function getAuditLogsByDateRange() {
         $user = authenticateUser();
         
-        if ($user['role'] !== 'SystemAdmin' && $user['role'] !== 'WarehouseAdmin') {
+        if ($user['role'] !== 'system_admin' && $user['role'] !== 'warehouse_admin') {
             Response::error("Insufficient permissions", FORBIDDEN);
         }
         
@@ -64,12 +65,16 @@ class AuditLogController {
     public static function getAuditTrail() {
         $user = authenticateUser();
         
-        if ($user['role'] !== 'SystemAdmin' && $user['role'] !== 'WarehouseAdmin') {
+
+
+        if ($user['role'] !== 'system_admin' && $user['role'] !== 'warehouse_admin') {
             Response::error("Insufficient permissions", FORBIDDEN);
         }
+
+        $input = json_decode(file_get_contents("php://input"), true);
         
-        $entity_type = isset($_GET['entityType']) ? $_GET['entityType'] : null;
-        $entity_id = isset($_GET['entityId']) ? (int)$_GET['entityId'] : null;
+        $entity_type = isset($input['entityType']) ? $input['entityType'] : null;
+        $entity_id = isset($input['entityId']) ? (int)$input['entityId'] : null;
         
         if (!$entity_type || !$entity_id) {
             Response::error("Entity type and ID required", BAD_REQUEST);
@@ -77,7 +82,7 @@ class AuditLogController {
         
         $audit = new AuditLog();
         $trail = $audit->getAuditTrail($entity_type, $entity_id);
-        
+    
         Response::success($trail, "Audit trail retrieved");
     }
 }

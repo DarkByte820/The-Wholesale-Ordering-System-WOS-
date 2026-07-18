@@ -54,3 +54,22 @@
 [2026-07-09 17:53:15] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
 [2026-07-09 22:51:12] [INFO] Order created | Data: {"orderId":4452,"userId":4}
 [2026-07-09 22:52:00] [INFO] Order created | Data: {"orderId":4453,"userId":4}
+[2026-07-12 20:40:50] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-07-12 23:02:30] [INFO] Payment verified | Data: {"reference":"TXN-20260712223307-9172"}
+[2026-07-12 23:40:08] [INFO] Order created | Data: {"orderId":4462,"userId":4}
+[2026-07-12 23:41:06] [INFO] Order created | Data: {"orderId":4463,"userId":4}
+[2026-07-13 00:07:09] [INFO] Payment verified | Data: {"reference":"TXN-20260712223307-9172"}
+[2026-07-13 14:13:35] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-07-13 14:26:53] [INFO] Order status updated | Data: {"orderId":"14449","status":"pending"}
+[2026-07-13 14:31:46] [INFO] Order cancelled | Data: {"orderId":"4449","userId":4}
+[2026-07-14 11:44:23] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-07-14 22:07:38] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-07-16 17:36:19] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-07-16 19:15:34] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-07-16 21:16:54] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-07-16 21:17:15] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-07-16 22:01:05] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-07-16 22:29:24] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-07-17 17:44:32] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}
+[2026-07-17 18:01:49] [INFO] Order created | Data: {"orderId":4473,"userId":4}
+[2026-07-19 01:26:08] [INFO] User logged in | Data: {"email":"emefa1@gmail.com"}

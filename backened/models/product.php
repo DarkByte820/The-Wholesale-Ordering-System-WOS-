@@ -43,18 +43,18 @@ class Product {
     
     public function getProductsByCategory($category, $page = 1, $limit = ITEMS_PER_PAGE) {
         $offset = ($page - 1) * $limit;
-        $stmt = $this->db->prepare("SELECT * FROM products WHERE Category = ? AND Status = 'Active' LIMIT ? OFFSET ?");
+        $stmt = $this->db->prepare("SELECT * FROM products WHERE Category_id = ? AND Status = 'Active' LIMIT ? OFFSET ?");
         $stmt->bind_param("sii", $category, $limit, $offset);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
     
-    public function createProduct($sku, $name, $description, $category, $unitPrice, $wholesalePrice, $unit, $supplier) {
+    public function createProduct($sku, $name, $description, $category_id, $unit_Price, $wholesale_Price, $unit) {
         $status = 'Active';
         $minWholesaleQty = 1;
         
-        $stmt = $this->db->prepare("INSERT INTO products (SKU, Name, Description, Category, UnitPrice, WholesalePrice, Unit, Status, MinimumWholesaleQty, Supplier) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssddsssi", $sku, $name, $description, $category, $unitPrice, $wholesalePrice, $unit, $status, $minWholesaleQty, $supplier);
+        $stmt = $this->db->prepare("INSERT INTO products (SKU, Name, Description, Category_ID, Unit_Price, Wholesale_Price, Unit, Status, `min_wholesale_qty`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssddsss", $sku, $name, $description, $category_id, $unit_Price, $wholesale_Price, $unit, $status, $minWholesaleQty);
         
         if ($stmt->execute()) {
             return $this->db->insert_id;
@@ -62,9 +62,14 @@ class Product {
         return false;
     }
     
-    public function updateProduct($product_id, $name, $unitPrice, $wholesalePrice, $status) {
-        $stmt = $this->db->prepare("UPDATE products SET Name = ?, UnitPrice = ?, WholesalePrice = ?, Status = ? WHERE ProductID = ?");
-        $stmt->bind_param("sddsi", $name, $unitPrice, $wholesalePrice, $status, $product_id);
+    public function updateProduct($product_id, $name, $unit_Price, $wholesale_Price, $status) {
+        $stmt = $this->db->prepare("UPDATE products SET Name = ?, Unit_Price = ?, Wholesale_Price = ?, Status = ? WHERE Product_ID = ?");
+        $stmt->bind_param("sddsi", $name, $unit_Price, $wholesale_Price, $status, $product_id);
+        return $stmt->execute();
+    }
+    public function deleteProduct($product_id) {
+        $stmt = $this->db->prepare("UPDATE products SET Status = 'Inactive' WHERE Product_ID = ?");
+        $stmt->bind_param("i", $product_id);
         return $stmt->execute();
     }
 }

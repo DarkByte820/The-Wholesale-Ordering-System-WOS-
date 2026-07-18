@@ -13,19 +13,23 @@ class CheckoutController
     {
         try {
 
+            
             $data = json_decode(file_get_contents("php://input"), true);
-
+            
             if (!$data) {
                 Response::error("Invalid request data", 400);
                 return;
             }
 
             // Change this if your auth middleware stores the user differently
-            $userId = $data['userId'] ?? 0;
+            $userId = authenticateUser();
+
 
             $service = new CheckoutService();
 
             $result = $service->processCheckout($userId, $data);
+
+            // echo json_encode($result);
 
             if ($result['success']) {
                 Response::success($result, "Checkout completed successfully");

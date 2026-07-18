@@ -8,7 +8,7 @@ class NotificationController {
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : ITEMS_PER_PAGE;
         
-        $notification = new Notifications();
+        $notification = new Notification();
         $notifications = $notification->getNotifications($user['userId'], $page, $limit);
         $unread_count = $notification->getUnreadCount($user['userId']);
         
@@ -21,7 +21,7 @@ class NotificationController {
     public static function getUnreadNotifications() {
         $user = authenticateUser();
         
-        $notification = new Notifications();
+        $notification = new Notification();
         $unread = $notification->getUnreadNotifications($user['userId']);
         
         Response::success($unread, "Unread notifications retrieved");
@@ -35,7 +35,7 @@ class NotificationController {
             Response::error("Notification ID required", BAD_REQUEST);
         }
         
-        $notification = new Notifications();
+        $notification = new Notification();
         $result = $notification->markAsRead($input['notificationId']);
         
         if ($result) {
@@ -48,7 +48,7 @@ class NotificationController {
     public static function markAllAsRead() {
         $user = authenticateUser();
         
-        $notification = new Notifications();
+        $notification = new Notification();
         $result = $notification->markAllAsRead($user['userId']);
         
         if ($result) {
@@ -64,9 +64,13 @@ class NotificationController {
         if (!isset($input['userId']) || !isset($input['message'])) {
             Response::error("User ID and message required", BAD_REQUEST);
         }
-        
-        $notification = new Notifications();
-        $result = $notification->createNotification($input['user_Id'], $input['eventType'], $input['message'], $input['channel'] ?? 'All', $input['orderId'] ?? null);
+      
+        try{
+            $notification = new Notification();
+            $result = $notification->createNotification($input['userId'], $input['eventType'], $input['message'], $input['channel'] ?? 'All', $input['orderId'] ?? null);
+        }catch(Exception $e){
+            Response::error("Invalid input", $e);
+        }
         
         if ($result) {
             Response::success(null, "Notification sent successfully");

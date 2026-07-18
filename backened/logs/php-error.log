@@ -477,3 +477,749 @@ Stack trace:
 #1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(106): PaymentController::initiatePayment()
 #2 {main}
   thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 19
+[12-Jul-2026 20:41:10 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 20:41:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:19
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(32): Payment->createPayment(0, 'emefa', 50, 'Mobile Money')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(106): PaymentController::initiatePayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 19
+[12-Jul-2026 20:48:22 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 21:54:14 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 21:56:33 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 21:58:22 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:00:12 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:00:23 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:01:57 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:03:08 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:08:30 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:11:42 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:14:35 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:20:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:72
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(58): Payment->verifyPayment('dzah')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(109): PaymentController::verifyPayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 72
+[12-Jul-2026 22:20:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:72
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(58): Payment->verifyPayment('dzah')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(109): PaymentController::verifyPayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 72
+[12-Jul-2026 22:21:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:72
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(58): Payment->verifyPayment('dzah')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(109): PaymentController::verifyPayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 72
+[12-Jul-2026 22:24:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:72
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(58): Payment->verifyPayment('dzah')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(109): PaymentController::verifyPayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 72
+[12-Jul-2026 22:26:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:72
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(58): Payment->verifyPayment('dzah')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(109): PaymentController::verifyPayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 72
+[12-Jul-2026 22:28:48 Europe/Berlin] PHP Warning:  Undefined array key "order_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:29:05 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:29:17 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:29:35 Europe/Berlin] PHP Warning:  Undefined array key "order_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:30:22 Europe/Berlin] PHP Warning:  Undefined array key "order_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:30:38 Europe/Berlin] PHP Warning:  Undefined array key "order_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:31:55 Europe/Berlin] PHP Warning:  Undefined array key "order_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 29
+[12-Jul-2026 22:36:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:72
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(58): Payment->verifyPayment('TXN-20260712223...')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(109): PaymentController::verifyPayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 72
+[12-Jul-2026 22:37:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:72
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(58): Payment->verifyPayment('TXN-20260712223...')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(109): PaymentController::verifyPayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 72
+[12-Jul-2026 22:40:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:72
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(58): Payment->verifyPayment('TXN-20260712223...')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(109): PaymentController::verifyPayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 72
+[12-Jul-2026 22:41:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:72
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(58): Payment->verifyPayment('dzah')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(109): PaymentController::verifyPayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 72
+[12-Jul-2026 22:41:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:72
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(58): Payment->verifyPayment('dzah')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(109): PaymentController::verifyPayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 72
+[12-Jul-2026 22:41:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:72
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(58): Payment->verifyPayment('TXN-20260712223...')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(109): PaymentController::verifyPayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 72
+[12-Jul-2026 22:48:31 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 22:48:31 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 22:54:49 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 22:54:49 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 22:55:46 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 22:55:46 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 22:56:55 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 22:56:55 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 22:59:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:72
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(58): Payment->verifyPayment('TXN-20260712223...')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(109): PaymentController::verifyPayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 72
+[12-Jul-2026 23:00:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php:72
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php(58): Payment->verifyPayment('TXN-20260712223...')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(109): PaymentController::verifyPayment()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 72
+[12-Jul-2026 23:02:30 Europe/Berlin] PHP Warning:  Undefined array key "Order_id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 80
+[12-Jul-2026 23:03:13 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:03:13 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:07:06 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:07:06 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:07:25 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:07:25 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:07:33 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:07:33 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:07:40 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:07:40 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:07:47 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:07:47 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:07:54 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:07:54 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:08:33 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:08:33 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:09:02 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:09:02 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:12:13 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:12:13 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:13:40 Europe/Berlin] PHP Warning:  Undefined array key "items" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:13:40 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:14:02 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, string given in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 54
+[12-Jul-2026 23:26:41 Europe/Berlin] Created order ID: 
+[12-Jul-2026 23:40:08 Europe/Berlin] PHP Warning:  Undefined array key "customerPhone" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 45
+[12-Jul-2026 23:40:08 Europe/Berlin] PHP Warning:  Undefined array key "customerPhone" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 80
+[12-Jul-2026 23:41:06 Europe/Berlin] PHP Warning:  Undefined array key "customerPhone" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 45
+[12-Jul-2026 23:41:06 Europe/Berlin] PHP Warning:  Undefined array key "customerPhone" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 80
+[12-Jul-2026 23:50:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:47
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php(153): Order->addOrderItem(4467, '1', '5', '50.0')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\CheckoutController.php(28): CheckoutService->processCheckout('1', Array)
+#2 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(118): CheckoutController::processCheckout()
+#3 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 47
+[12-Jul-2026 23:54:17 Europe/Berlin] PHP Warning:  Array to string conversion in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 127
+[12-Jul-2026 23:54:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:47
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php(153): Order->addOrderItem(4468, '1', '5', '50.0')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\CheckoutController.php(30): CheckoutService->processCheckout(Array, Array)
+#2 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(118): CheckoutController::processCheckout()
+#3 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 47
+[12-Jul-2026 23:55:24 Europe/Berlin] PHP Warning:  Array to string conversion in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 127
+[12-Jul-2026 23:55:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php:47
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php(153): Order->addOrderItem(4469, '1', '5', '50.0')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\CheckoutController.php(30): CheckoutService->processCheckout(Array, Array)
+#2 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(118): CheckoutController::processCheckout()
+#3 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\order.php on line 47
+[12-Jul-2026 23:59:46 Europe/Berlin] PHP Warning:  Array to string conversion in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 127
+[12-Jul-2026 23:59:46 Europe/Berlin] Prepare failed: Unknown column 'InvoiceNumber' in 'field list'
+[12-Jul-2026 23:59:46 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.audit_log' doesn't exist
+[13-Jul-2026 00:00:26 Europe/Berlin] Prepare failed: Unknown column 'InvoiceNumber' in 'field list'
+[13-Jul-2026 00:00:26 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.audit_log' doesn't exist
+[13-Jul-2026 00:00:44 Europe/Berlin] Prepare failed: Unknown column 'InvoiceNumber' in 'field list'
+[13-Jul-2026 00:00:44 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.audit_log' doesn't exist
+[13-Jul-2026 00:07:09 Europe/Berlin] PHP Warning:  Undefined array key "Order_id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\payment.php on line 80
+[13-Jul-2026 00:12:28 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 93
+[13-Jul-2026 00:13:11 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 93
+[13-Jul-2026 00:14:29 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 93
+[13-Jul-2026 00:16:35 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 93
+[13-Jul-2026 00:21:22 Europe/Berlin] PHP Warning:  Undefined array key "orderId" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\paymentcontroller.php on line 93
+[13-Jul-2026 14:10:34 Europe/Berlin] PHP Warning:  Undefined array key "id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\CheckoutService.php on line 88
+[13-Jul-2026 14:31:46 Europe/Berlin] PHP Warning:  Undefined array key "Status" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 225
+[13-Jul-2026 15:22:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:21
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(149): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 21
+[13-Jul-2026 15:24:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:71
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(31): DashboardService->getSalesTrend(30)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(152): DashboardController::salesTrend()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 71
+[13-Jul-2026 15:25:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:87
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(44): DashboardService->getOrderStatusBreakdown()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(155): DashboardController::orderStatusBreakdown()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 87
+[13-Jul-2026 15:28:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:21
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(149): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 21
+[13-Jul-2026 15:28:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:87
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(44): DashboardService->getOrderStatusBreakdown()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(155): DashboardController::orderStatusBreakdown()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 87
+[13-Jul-2026 21:20:55 Europe/Berlin] PHP Warning:  Undefined array key "order_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 56
+[13-Jul-2026 21:21:43 Europe/Berlin] PHP Warning:  Array to string conversion in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 55
+[13-Jul-2026 21:21:43 Europe/Berlin] PHP Warning:  Undefined array key "order_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 57
+[13-Jul-2026 21:22:06 Europe/Berlin] PHP Warning:  Undefined array key "user_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 55
+[13-Jul-2026 21:22:06 Europe/Berlin] PHP Warning:  Undefined array key "order_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 57
+[13-Jul-2026 21:22:47 Europe/Berlin] PHP Warning:  Undefined array key "user_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 55
+[13-Jul-2026 21:22:47 Europe/Berlin] PHP Warning:  Undefined array key "order_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 57
+[13-Jul-2026 21:26:15 Europe/Berlin] PHP Warning:  Undefined array key "user_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 55
+[13-Jul-2026 21:26:15 Europe/Berlin] PHP Warning:  Undefined array key "order_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 57
+[13-Jul-2026 21:36:58 Europe/Berlin] PHP Warning:  Undefined array key "user_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 65
+[13-Jul-2026 21:36:58 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.invoice' doesn't exist
+[13-Jul-2026 21:36:58 Europe/Berlin] PHP Warning:  Undefined array key "success" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\invoice.php on line 145
+[13-Jul-2026 21:37:31 Europe/Berlin] PHP Warning:  Undefined array key "user_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 65
+[13-Jul-2026 21:37:31 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.invoice' doesn't exist
+[13-Jul-2026 21:37:31 Europe/Berlin] PHP Warning:  Undefined array key "success" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\invoice.php on line 145
+[13-Jul-2026 21:39:10 Europe/Berlin] PHP Warning:  Undefined array key "user_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 65
+[13-Jul-2026 21:39:10 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.invoice' doesn't exist
+[13-Jul-2026 21:39:10 Europe/Berlin] PHP Warning:  Undefined array key "success" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\invoice.php on line 147
+[13-Jul-2026 21:39:23 Europe/Berlin] PHP Warning:  Undefined array key "user_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 65
+[13-Jul-2026 21:39:23 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.invoice' doesn't exist
+[13-Jul-2026 21:39:23 Europe/Berlin] PHP Warning:  Undefined array key "success" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\invoice.php on line 146
+[13-Jul-2026 21:40:32 Europe/Berlin] PHP Warning:  Undefined array key "user_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 65
+[13-Jul-2026 21:40:32 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.invoice' doesn't exist
+[13-Jul-2026 21:40:32 Europe/Berlin] PHP Warning:  Undefined array key "success" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\invoice.php on line 146
+[13-Jul-2026 21:41:21 Europe/Berlin] PHP Warning:  Undefined array key "user_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 65
+[13-Jul-2026 21:41:21 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.invoice' doesn't exist
+[13-Jul-2026 21:41:21 Europe/Berlin] PHP Warning:  Undefined array key "success" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 69
+[13-Jul-2026 21:47:15 Europe/Berlin] PHP Warning:  Undefined array key "user_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 65
+[13-Jul-2026 21:47:15 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.invoice' doesn't exist
+[13-Jul-2026 21:47:15 Europe/Berlin] PHP Warning:  Undefined array key "success" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 69
+[13-Jul-2026 21:51:29 Europe/Berlin] PHP Warning:  Undefined array key "user_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 63
+[13-Jul-2026 21:51:29 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.invoice' doesn't exist
+[13-Jul-2026 21:53:40 Europe/Berlin] PHP Warning:  Undefined array key "user_Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 63
+[13-Jul-2026 21:53:40 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.invoice' doesn't exist
+[14-Jul-2026 12:00:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:21
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(149): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 21
+[14-Jul-2026 22:10:04 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "public" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 82
+[14-Jul-2026 22:10:36 Europe/Berlin] PHP Warning:  Undefined array key "invoice-Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\invoicecontroller.php on line 75
+[14-Jul-2026 22:12:08 Europe/Berlin] PHP Warning:  Undefined array key "invoice-Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\invoice.php on line 147
+[14-Jul-2026 22:23:29 Europe/Berlin] PHP Warning:  Undefined array key "invoice-Id" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\invoice.php on line 147
+[14-Jul-2026 22:41:25 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.order' doesn't exist
+[14-Jul-2026 22:45:58 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.order' doesn't exist
+[14-Jul-2026 22:46:44 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.order' doesn't exist
+[14-Jul-2026 22:47:05 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.order' doesn't exist
+[14-Jul-2026 22:47:20 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.order' doesn't exist
+[14-Jul-2026 22:47:55 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.order' doesn't exist
+[14-Jul-2026 22:48:12 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.order' doesn't exist
+[14-Jul-2026 23:25:38 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.order' doesn't exist
+[14-Jul-2026 23:26:22 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.order' doesn't exist
+[14-Jul-2026 23:27:56 Europe/Berlin] Prepare failed: Table 'ghana_warehouse_connect.order' doesn't exist
+[15-Jul-2026 01:28:35 Europe/Berlin] PHP Warning:  Undefined array key "unit_price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\invoice.php on line 238
+[15-Jul-2026 01:28:35 Europe/Berlin] PHP Warning:  Undefined array key "wholesale_price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\invoice.php on line 239
+[15-Jul-2026 01:28:35 Europe/Berlin] PHP Warning:  Undefined array key "unit_price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\invoice.php on line 238
+[15-Jul-2026 01:28:35 Europe/Berlin] PHP Warning:  Undefined array key "wholesale_price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\invoice.php on line 239
+[15-Jul-2026 01:30:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:21
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 21
+[15-Jul-2026 01:34:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:36
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 36
+[15-Jul-2026 01:35:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:46
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 46
+[15-Jul-2026 01:37:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:46
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 46
+[15-Jul-2026 01:39:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:71
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(31): DashboardService->getSalesTrend('i', 30)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(149): DashboardController::salesTrend()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 71
+[15-Jul-2026 02:08:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:71
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(31): DashboardService->getSalesTrend('i', 30)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(149): DashboardController::salesTrend()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 71
+[15-Jul-2026 02:14:36 Europe/Berlin] PHP Parse error:  syntax error, unexpected identifier "BY" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 71
+[15-Jul-2026 02:16:13 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:31
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 31
+[15-Jul-2026 02:16:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:31
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 31
+[15-Jul-2026 09:46:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:31
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 31
+[15-Jul-2026 09:48:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:36
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 36
+[15-Jul-2026 09:49:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:36
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 36
+[15-Jul-2026 09:53:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:36
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 36
+[15-Jul-2026 09:59:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:44
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 44
+[15-Jul-2026 10:06:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:44
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 44
+[15-Jul-2026 10:08:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:62
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 62
+[15-Jul-2026 10:12:05 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:63
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 63
+[15-Jul-2026 10:12:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:88
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(31): DashboardService->getSalesTrend('i', 30)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(149): DashboardController::salesTrend()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 88
+[15-Jul-2026 10:12:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:44
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 44
+[15-Jul-2026 12:20:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:44
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 44
+[15-Jul-2026 12:21:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:44
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 44
+[15-Jul-2026 12:23:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:44
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 44
+[15-Jul-2026 12:27:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:44
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 44
+[15-Jul-2026 12:30:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:44
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(16): DashboardService->getDashboardMetrics()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(146): DashboardController::getDashboard()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 44
+[15-Jul-2026 12:34:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:94
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(31): DashboardService->getSalesTrend(30)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(149): DashboardController::salesTrend()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 94
+[15-Jul-2026 12:37:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php:94
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\DashboardController.php(31): DashboardService->getSalesTrend(30)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(149): DashboardController::salesTrend()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 94
+[15-Jul-2026 12:38:13 Europe/Berlin] PHP Warning:  Undefined variable $sql in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\DashboardService.php on line 93
+[16-Jul-2026 18:35:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:37
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(175): ReportService->getSalesReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(157): ReportController::salesReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 37
+[16-Jul-2026 18:37:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:37
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(175): ReportService->getSalesReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(157): ReportController::salesReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 37
+[16-Jul-2026 18:38:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:37
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(175): ReportService->getSalesReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(157): ReportController::salesReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 37
+[16-Jul-2026 18:42:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:37
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(175): ReportService->getSalesReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(157): ReportController::salesReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 37
+[16-Jul-2026 18:45:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(187): ReportService->getInventoryReport()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(160): ReportController::inventoryReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 57
+[16-Jul-2026 18:47:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(187): ReportService->getInventoryReport()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(160): ReportController::inventoryReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 57
+[16-Jul-2026 18:50:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(187): ReportService->getInventoryReport()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(160): ReportController::inventoryReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 57
+[16-Jul-2026 18:51:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(187): ReportService->getInventoryReport()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(160): ReportController::inventoryReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 57
+[16-Jul-2026 18:52:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(187): ReportService->getInventoryReport()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(160): ReportController::inventoryReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 57
+[16-Jul-2026 18:53:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(187): ReportService->getInventoryReport()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(160): ReportController::inventoryReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 57
+[16-Jul-2026 18:56:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(187): ReportService->getInventoryReport()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(160): ReportController::inventoryReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 57
+[16-Jul-2026 19:01:35 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:94
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(201): ReportService->getCustomerReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(163): ReportController::customerReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 94
+[16-Jul-2026 19:02:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:94
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(201): ReportService->getCustomerReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(163): ReportController::customerReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 94
+[16-Jul-2026 19:04:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:94
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(201): ReportService->getCustomerReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(163): ReportController::customerReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 94
+[16-Jul-2026 19:05:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:94
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(201): ReportService->getCustomerReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(163): ReportController::customerReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 94
+[16-Jul-2026 19:06:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:94
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(201): ReportService->getCustomerReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(163): ReportController::customerReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 94
+[16-Jul-2026 19:07:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:94
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(201): ReportService->getCustomerReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(163): ReportController::customerReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 94
+[16-Jul-2026 19:08:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:94
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(201): ReportService->getCustomerReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(163): ReportController::customerReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 94
+[16-Jul-2026 19:12:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:114
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(215): ReportService->getPaymentReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(166): ReportController::paymentReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 114
+[16-Jul-2026 19:12:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:114
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(215): ReportService->getPaymentReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(166): ReportController::paymentReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 114
+[16-Jul-2026 19:12:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:114
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(215): ReportService->getPaymentReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(166): ReportController::paymentReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 114
+[16-Jul-2026 19:15:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:114
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(215): ReportService->getPaymentReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(166): ReportController::paymentReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 114
+[16-Jul-2026 19:16:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:114
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(215): ReportService->getPaymentReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(166): ReportController::paymentReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 114
+[16-Jul-2026 19:24:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:132
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(228): ReportService->getDeliveryReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(169): ReportController::deliveryReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 132
+[16-Jul-2026 19:26:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:132
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(228): ReportService->getDeliveryReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(169): ReportController::deliveryReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 132
+[16-Jul-2026 19:27:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:132
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(228): ReportService->getDeliveryReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(169): ReportController::deliveryReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 132
+[16-Jul-2026 19:31:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:132
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(228): ReportService->getDeliveryReport('2026-07-01', '2026-07-31')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(169): ReportController::deliveryReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 132
+[16-Jul-2026 19:36:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:153
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(240): ReportService->getLowStockReport()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(172): ReportController::lowStockReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 153
+[16-Jul-2026 19:39:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:153
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(240): ReportService->getLowStockReport()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(172): ReportController::lowStockReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 153
+[16-Jul-2026 19:40:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:153
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(240): ReportService->getLowStockReport()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(172): ReportController::lowStockReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 153
+[16-Jul-2026 19:41:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:153
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(240): ReportService->getLowStockReport()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(172): ReportController::lowStockReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 153
+[16-Jul-2026 19:46:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php:153
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ReportController.php(240): ReportService->getLowStockReport()
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(172): ReportController::lowStockReport()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\services\ReportService.php on line 153
+[16-Jul-2026 19:56:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Notifications" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\NotificationController.php:68
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(177): NotificationController::sendNotification()
+#1 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\NotificationController.php on line 68
+[16-Jul-2026 19:57:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Notifications" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\NotificationController.php:68
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(177): NotificationController::sendNotification()
+#1 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\NotificationController.php on line 68
+[16-Jul-2026 19:59:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Notifications" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\NotificationController.php:68
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(177): NotificationController::sendNotification()
+#1 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\NotificationController.php on line 68
+[16-Jul-2026 20:09:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Notifications" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\NotificationController.php:68
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(177): NotificationController::sendNotification()
+#1 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\NotificationController.php on line 68
+[16-Jul-2026 20:10:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Notifications" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\NotificationController.php:69
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(177): NotificationController::sendNotification()
+#1 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\NotificationController.php on line 69
+[16-Jul-2026 20:15:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Notifications" not found in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\NotificationController.php:69
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(177): NotificationController::sendNotification()
+#1 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\NotificationController.php on line 69
+[16-Jul-2026 20:15:55 Europe/Berlin] Prepare failed: Unknown column 'UserID' in 'field list'
+[16-Jul-2026 20:16:57 Europe/Berlin] Prepare failed: Unknown column 'UserID' in 'field list'
+[16-Jul-2026 20:20:07 Europe/Berlin] Prepare failed: Unknown column 'UserID' in 'field list'
+[16-Jul-2026 21:26:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(99): Product->createProduct('12323', 'emefa', 'hmm', '1', 45, 50, 'pieces', '222')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(63): ProductController::createProduct()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 57
+[16-Jul-2026 21:27:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(99): Product->createProduct('12323', 'emefa', 'hmm', '1', 45, 50, 'pieces', '222')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(63): ProductController::createProduct()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 57
+[16-Jul-2026 21:28:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(99): Product->createProduct('12323', 'emefa', 'hmm', '1', 45, 50, 'pieces', '222')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(63): ProductController::createProduct()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 57
+[16-Jul-2026 21:31:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(99): Product->createProduct('12323', 'emefa', 'hmm', '1', 45, 50, 'pieces', '222')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(63): ProductController::createProduct()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 57
+[16-Jul-2026 21:32:17 Europe/Berlin] PHP Warning:  Undefined array key "unit_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 96
+[16-Jul-2026 21:32:17 Europe/Berlin] PHP Warning:  Undefined array key "wholesale_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 97
+[16-Jul-2026 21:32:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(99): Product->createProduct('12323', 'emefa', 'hmm', '1', 0, 0, 'pieces', '222')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(63): ProductController::createProduct()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 57
+[16-Jul-2026 21:32:49 Europe/Berlin] PHP Warning:  Undefined array key "unit_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 96
+[16-Jul-2026 21:32:49 Europe/Berlin] PHP Warning:  Undefined array key "wholesale_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 97
+[16-Jul-2026 21:32:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(99): Product->createProduct('thtfddxcfdrx', 'emefa', 'hmm', '1', 0, 0, 'pieces', '222')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(63): ProductController::createProduct()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 57
+[16-Jul-2026 21:35:23 Europe/Berlin] PHP Warning:  Undefined array key "unit_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 96
+[16-Jul-2026 21:35:23 Europe/Berlin] PHP Warning:  Undefined array key "wholesale_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 97
+[16-Jul-2026 21:35:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(98): Product->createProduct('thtfddxcfdrx', 'emefa', 'hmm', '1', 0, 0, 'pieces')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(63): ProductController::createProduct()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 57
+[16-Jul-2026 21:37:07 Europe/Berlin] PHP Warning:  Undefined array key "unit_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 96
+[16-Jul-2026 21:37:07 Europe/Berlin] PHP Warning:  Undefined array key "wholesale_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 97
+[16-Jul-2026 21:37:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:57
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(98): Product->createProduct('thtfddxcfdrx', 'emefa', 'hmm', '1', 0, 0, 'pieces')
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(63): ProductController::createProduct()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 57
+[16-Jul-2026 21:39:01 Europe/Berlin] PHP Warning:  Undefined array key "unit_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 96
+[16-Jul-2026 21:39:01 Europe/Berlin] PHP Warning:  Undefined array key "wholesale_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 97
+[16-Jul-2026 21:49:25 Europe/Berlin] PHP Warning:  Undefined array key "name" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[16-Jul-2026 21:49:25 Europe/Berlin] PHP Warning:  Undefined array key "unit_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[16-Jul-2026 21:49:25 Europe/Berlin] PHP Warning:  Undefined array key "wholesale_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[16-Jul-2026 21:49:25 Europe/Berlin] PHP Warning:  Undefined array key "status" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[16-Jul-2026 21:49:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:67
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(126): Product->updateProduct(1, NULL, 0, 0, NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(66): ProductController::updateProduct()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 67
+[16-Jul-2026 21:51:50 Europe/Berlin] PHP Warning:  Undefined array key "name" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[16-Jul-2026 21:51:50 Europe/Berlin] PHP Warning:  Undefined array key "unit_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[16-Jul-2026 21:51:50 Europe/Berlin] PHP Warning:  Undefined array key "wholesale_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[16-Jul-2026 21:51:50 Europe/Berlin] PHP Warning:  Undefined array key "status" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[16-Jul-2026 21:58:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:31
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(30): Product->getProductById(2)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(84): ProductController::getProductById()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 31
+[16-Jul-2026 21:58:59 Europe/Berlin] PHP Warning:  Undefined array key "name" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[16-Jul-2026 21:58:59 Europe/Berlin] PHP Warning:  Undefined array key "unit_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[16-Jul-2026 21:58:59 Europe/Berlin] PHP Warning:  Undefined array key "wholesale_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[16-Jul-2026 21:58:59 Europe/Berlin] PHP Warning:  Undefined array key "status" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[16-Jul-2026 22:10:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:47
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(67): Product->getProductsByCategory('2', 1, 10)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(73): ProductController::getByCategory()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 47
+[17-Jul-2026 17:45:24 Europe/Berlin] PHP Warning:  Undefined array key "unit_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 96
+[17-Jul-2026 17:45:24 Europe/Berlin] PHP Warning:  Undefined array key "wholesale_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 97
+[17-Jul-2026 17:45:37 Europe/Berlin] PHP Warning:  Undefined array key "name" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[17-Jul-2026 17:45:37 Europe/Berlin] PHP Warning:  Undefined array key "unit_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[17-Jul-2026 17:45:37 Europe/Berlin] PHP Warning:  Undefined array key "wholesale_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[17-Jul-2026 17:45:37 Europe/Berlin] PHP Warning:  Undefined array key "status" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 126
+[17-Jul-2026 17:45:43 Europe/Berlin] PHP Warning:  Undefined array key "unit_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 96
+[17-Jul-2026 17:45:43 Europe/Berlin] PHP Warning:  Undefined array key "wholesale_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 97
+[17-Jul-2026 17:45:58 Europe/Berlin] PHP Warning:  Undefined array key "unit_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 96
+[17-Jul-2026 17:45:58 Europe/Berlin] PHP Warning:  Undefined array key "wholesale_Price" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php on line 97
+[17-Jul-2026 18:01:49 Europe/Berlin] PHP Warning:  Undefined array key "customerPhone" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 45
+[17-Jul-2026 18:01:49 Europe/Berlin] PHP Warning:  Undefined array key "customerPhone" in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\ordercontroller.php on line 80
+[17-Jul-2026 19:17:26 Europe/Berlin] PHP Warning:  Undefined variable $path in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 197
+[17-Jul-2026 19:18:57 Europe/Berlin] PHP Warning:  Undefined variable $path in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 197
+[17-Jul-2026 19:19:48 Europe/Berlin] PHP Warning:  Undefined variable $path in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 197

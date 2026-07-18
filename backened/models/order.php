@@ -40,7 +40,7 @@ class Order {
     public function addOrderItem($order_id, $product_id, $quantity, $unit_price) {
         $total_price = $quantity * $unit_price;
 
-        $stmt = $this->db->prepare("INSERT INTO order_item (OrderID, ProductID, Quantity, UnitPrice, TotalPrice)
+        $stmt = $this->db->prepare("INSERT INTO order_items (OrderID, ProductID, Quantity, UnitPrice, TotalPrice)
                                     VALUES (?, ?, ?, ?, ?)");
 
         $stmt->bind_param("iiidd", $order_id, $product_id, $quantity, $unit_price, $total_price);

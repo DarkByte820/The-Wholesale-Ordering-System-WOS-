@@ -16,7 +16,7 @@ class PaymentController {
     }
 
     if (
-        empty($input['order_id']) ||
+        empty($input['order_Id']) ||
         empty($input['provider']) ||
         empty($input['amount'])
     ) {
@@ -26,10 +26,10 @@ class PaymentController {
     $payment = new Payment();
 
     $result = $payment->createPayment(
-        (int)$input['orderId'],
+        (int)$input['order_Id'],
         trim($input['provider']),
         (float)$input['amount'],
-        $input['paymentMethod'] ?? 'Mobile Money'
+        $input['payment_Method'] ?? 'Mobile Money'
     );
 
     if (!$result) {
@@ -38,8 +38,8 @@ class PaymentController {
 
     Response::success(
         [
-            "paymentId" => $result["paymentId"],
-            "transactionReference" => $result["transactionReference"],
+            "paymentId" => $result["payment_Id"],
+            "transactionReference" => $result["reference"],
             "status" => "Initiated"
         ],
         "Payment initiated successfully",
@@ -85,8 +85,8 @@ class PaymentController {
     public static function checkStatus() {
         $input = json_decode(file_get_contents("php://input"), true);
         
-        if (!isset($input['transactionReference'])) {
-            Response::error("Transaction reference required", BAD_REQUEST);
+        if (!isset($input['transactionReference']) || !isset($input['orderId'])) {
+            Response::error("Transaction reference and order ID required", BAD_REQUEST);
         }
         
         $payment = new Payment();

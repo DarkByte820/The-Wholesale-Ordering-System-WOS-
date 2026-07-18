@@ -132,6 +132,7 @@ class CheckoutService {
             $checkoutData['customerPhone']
         );
         
+
         if (!$orderId) {
             return [
                 'success' => false,

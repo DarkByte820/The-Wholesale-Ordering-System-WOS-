@@ -11,7 +11,7 @@ class NotificationService {
     private $smsNotifier;
     
     public function __construct() {
-        $this->notification = new Notifications();
+        $this->notification = new Notification();
         $this->emailNotifier = new EmailNotifier();
         $this->smsNotifier = new SMSNotifier();
     }

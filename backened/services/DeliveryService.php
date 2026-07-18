@@ -14,7 +14,7 @@ class DeliveryService {
         $database = new Database();
         $this->db = $database->connect();
         $this->delivery = new Delivery();
-        $this->notification = new Notifications();
+        $this->notification = new Notification();
     }
     
     /**

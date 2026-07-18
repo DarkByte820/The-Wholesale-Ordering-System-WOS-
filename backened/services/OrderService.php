@@ -16,7 +16,7 @@ class OrderService {
         $this->db = $database->connect();
         $this->order = new Order();
         $this->inventory = new Inventory();
-        $this->notification = new Notifications();
+        $this->notification = new Notification();
     }
     
     /**
