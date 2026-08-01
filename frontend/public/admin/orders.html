@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders - Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+</head>
+<body>
+    <div class="admin-layout" id="adminLayout"></div>
+
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Order Details</h3>
+                <button class="modal-close" onclick="AdminApp.hideModal('orderModal')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="orderDetails"></div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" onclick="AdminApp.hideModal('orderModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/utils.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="../../js/api.js"></script>
+    <script src="../../js/components.js"></script>
+    <script src="../../js/admin.js"></script>
+    <script>
+        var allOrders = [];
+        var statusFilter = '';
+        var searchTerm = '';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!AdminApp.requireAdmin()) return;
+            var content = AdminApp.initLayout('Orders', 'orders');
+
+            var html = '<div class="page-header">';
+            html += '<div class="page-header-left"><input type="text" id="searchBox" placeholder="Search orders..." oninput="searchOrders(this.value)"></div>';
+            html += '<div class="page-header-right">';
+            html += '<select id="statusFilter" onchange="filterStatus(this.value)">';
+            html += '<option value="">All Statuses</option>';
+            html += '<option value="Processing">Processing</option><option value="Confirmed">Confirmed</option>';
+            html += '<option value="Packed">Packed</option><option value="Shipped">Shipped</option>';
+            html += '<option value="Out for Delivery">Out for Delivery</option><option value="Delivered">Delivered</option>';
+            html += '<option value="Cancelled">Cancelled</option>';
+            html += '</select></div></div>';
+            html += '<div id="orderTable"></div>';
+            content.innerHTML = html;
+
+            loadOrders();
+        });
+
+        async function loadOrders() {
+            var result = await API.getAllOrders();
+            if (result.success) allOrders = result.data || result.orders || [];
+            renderTable();
+        }
+
+        function renderTable() {
+            var filtered = allOrders.filter(function(o) {
+                var matchSearch = !searchTerm || String(o.OrderID).indexOf(searchTerm) !== -1 || (o.name || '').toLowerCase().indexOf(searchTerm) !== -1;
+                var matchStatus = !statusFilter || o.Status === statusFilter;
+                return matchSearch && matchStatus;
+            });
+
+            if (filtered.length === 0) {
+                document.getElementById('orderTable').innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i class="fa-solid fa-inbox"></i></div><p>No orders found</p></div>';
+                return;
+            }
+
+            var html = '<table class="data-table"><thead><tr><th>Order ID</th><th>Customer</th><th>Total</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead><tbody>';
+            filtered.forEach(function(o) {
+                html += '<tr>';
+                html += '<td>#' + o.OrderID + '</td>';
+                html += '<td>' + escapeHtml(o.name || o.UserID) + '</td>';
+                html += '<td>GH\u20B5' + parseFloat(o.TotalAmount || 0).toFixed(2) + '</td>';
+                html += '<td>' + AdminApp.statusBadge(o.status) + '</td>';
+                html += '<td>' + (o.Order_Date || o.created_at || '-') + '</td>';
+                html += '<td class="actions">';
+                html += '<button class="btn btn-sm btn-outline" onclick="viewOrder(' + o.OrderID + ')"><i class="fa-solid fa-eye"></i></button> ';
+                if (o.Status !== 'Delivered' && o.Status !== 'Cancelled') {
+                    html += '<select class="status-select" onchange="updateStatus(' + o.OrderID + ', this.value)">';
+                    var statuses = ['Processing', 'Confirmed', 'Packed', 'Shipped', 'Out for Delivery', 'Delivered'];
+                    statuses.forEach(function(s) {
+                        html += '<option value="' + s + '"' + (o.Status === s ? ' selected' : '') + '>' + s + '</option>';
+                    });
+                    html += '</select>';
+                }
+                html += '</td></tr>';
+            });
+            html += '</tbody></table>';
+            document.getElementById('orderTable').innerHTML = html;
+        }
+
+        function searchOrders(val) { searchTerm = val.toLowerCase(); renderTable(); }
+        function filterStatus(val) { statusFilter = val; renderTable(); }
+
+        async function updateStatus(orderId, status) {
+            var result = await API.updateOrderStatus(orderId, status);
+            if (result.success) {
+                showAlert('Status updated to ' + status, 'success');
+                loadOrders();
+            } else {
+                showAlert(result.message || 'Update failed', 'error');
+                loadOrders();
+            }
+        }
+
+        async function viewOrder(id) {
+            var result = await API.getOrderById(id);
+            if (!result.success) { showAlert('Failed to load order', 'error'); return; }
+            var o = result.data;
+
+            var html = '<div class="detail-grid">';
+            html += '<div class="detail-item"><span class="detail-label">Order ID</span><span>#' + o.OrderID + '</span></div>';
+            html += '<div class="detail-item"><span class="detail-label">Customer</span><span>' + escapeHtml(o.name || o.UserID) + '</span></div>';
+            html += '<div class="detail-item"><span class="detail-label">Total</span><span>GH\u20B5' + parseFloat(o.TotalAmount ||  0).toFixed(2) + '</span></div>';
+            html += '<div class="detail-item"><span class="detail-label">Status</span><span>' + AdminApp.statusBadge(o.status) + '</span></div>';
+            html += '<div class="detail-item"><span class="detail-label">Payment</span><span>' + AdminApp.statusBadge(o.PaymentStatus || 'Pending') + '</span></div>';
+            html += '<div class="detail-item"><span class="detail-label">Date</span><span>' + (o.Order_Date || o.created_at || '-') + '</span></div>';
+            html += '</div>';
+            if (o.Items && o.Items.length > 0) {
+                html += '<h4 class="detail-heading">Items</h4><ul>';
+                o.Items.forEach(function(item) {
+                    html += '<li>' + escapeHtml(item.Name || item.Product_ID) + ' x ' + item.Quantity + ' - GH\u20B5' + (item.Price || 0).toFixed(2) + '</li>';
+                });
+                html += '</ul>';
+            }
+            document.getElementById('orderDetails').innerHTML = html;
+            AdminApp.showModal('orderModal');
+        }
+    </script>
+</body>
+</html>

@@ -30,7 +30,7 @@ function authenticateUser() {
 function authorizeRole($required_role) {
     $user = authenticateUser();
     
-    if ($user['role'] !== $required_role && $user['role'] !== 'SystemAdmin') {
+    if ($user['role'] !== $required_role && $user['role'] !== 'system_admin') {
         Response::error("Insufficient permissions", FORBIDDEN);
     }
     

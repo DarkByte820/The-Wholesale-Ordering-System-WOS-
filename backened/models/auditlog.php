@@ -107,7 +107,7 @@ class AuditLog {
     public static function getAuditTrail() {
         $user = authenticateUser();
         
-        // if ($user['role'] !== 'SystemAdmin') {
+        // if ($user['role'] !== 'system_admin') {
         //     Response::error("Insufficient permissions", FORBIDDEN);
         // }
         

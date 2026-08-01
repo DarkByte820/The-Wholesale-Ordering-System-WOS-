@@ -120,7 +120,7 @@ class ComboPackageController {
 
         $user = authenticateUser();
 
-        if (!in_array($user['role'], ['warehouse_admin', 'SystemAdmin'])) {
+        if (!in_array($user['role'], ['warehouse_admin', 'system_admin'])) {
             Response::error("Insufficient permissions", FORBIDDEN);
         }
 

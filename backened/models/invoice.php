@@ -116,7 +116,7 @@ class Invoice {
     public static function emailInvoice() {
         $user = authenticateUser();
         
-        if ($user['role'] !== 'WarehouseAdmin' && $user['role'] !== 'SystemAdmin') {
+        if ($user['role'] !== 'warehouse_admin' && $user['role'] !== 'system_admin') {
             Response::error("Insufficient permissions", FORBIDDEN);
         }
         

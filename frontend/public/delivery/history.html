@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery History - Delivery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+</head>
+<body>
+    <div class="admin-layout" id="adminLayout"></div>
+
+    <script src="../../js/utils.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="../../js/api.js"></script>
+    <script src="../../js/components.js"></script>
+    <script src="../../js/admin.js"></script>
+    <script>
+        var allHistory = [];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!AdminApp.requireDelivery()) return;
+            var content = AdminApp.initLayout('Delivery History', 'history');
+
+            var html = '<div class="page-header">';
+            html += '<div class="page-header-left"><input type="text" id="searchBox" placeholder="Search history..." oninput="searchHistory(this.value)"></div>';
+            html += '</div>';
+            html += '<div id="historyTable"></div>';
+            content.innerHTML = html;
+
+            loadHistory();
+        });
+
+        async function loadHistory() {
+            var result = await API.getMyOrders();
+            if (result.success) allHistory = result.data || result.orders || [];
+            renderTable();
+        }
+
+        function renderTable() {
+            var search = (document.getElementById('searchBox') ? document.getElementById('searchBox').value : '').toLowerCase();
+            var filtered = allHistory.filter(function(o) {
+                return o.Status === 'Delivered' && (!search || String(o.Order_ID).indexOf(search) !== -1 || (o.CustomerName || '').toLowerCase().indexOf(search) !== -1);
+            });
+
+            if (filtered.length === 0) {
+                document.getElementById('historyTable').innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i class="fa-solid fa-clock-rotate-left"></i></div><p>No delivery history found</p></div>';
+                return;
+            }
+
+            var html = '<div class="stats-grid">';
+            html += '<div class="stat-card"><div class="stat-icon gradient-green"><i class="fa-solid fa-check-circle"></i></div><div class="stat-info"><span class="stat-number">' + filtered.length + '</span><span class="stat-label">Total Delivered</span></div></div>';
+            html += '</div>';
+
+            html += '<table class="data-table"><thead><tr><th>Order ID</th><th>Customer</th><th>Address</th><th>Total</th><th>Date</th></tr></thead><tbody>';
+            filtered.forEach(function(o) {
+                html += '<tr>';
+                html += '<td>#' + o.Order_ID + '</td>';
+                html += '<td>' + escapeHtml(o.CustomerName || o.User_ID) + '</td>';
+                html += '<td>' + escapeHtml(o.Delivery_Address || o.Address || '-') + '</td>';
+                html += '<td>GH\u20B5' + (o.Total_Amount || o.Total || 0).toFixed(2) + '</td>';
+                html += '<td>' + (o.Order_Date || o.Created_At || '-') + '</td>';
+                html += '</tr>';
+            });
+            html += '</tbody></table>';
+            document.getElementById('historyTable').innerHTML = html;
+        }
+
+        function searchHistory() { renderTable(); }
+    </script>
+</body>
+</html>

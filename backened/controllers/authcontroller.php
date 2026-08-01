@@ -94,4 +94,110 @@ class AuthController {
             'token'  => $token
         ], "Login successful");
     }
+
+    public static function forgotPassword() {
+        $input = json_decode(file_get_contents("php://input"), true);
+
+        if (empty($input['email'])) {
+            Response::error("Email is required", BAD_REQUEST);
+        }
+
+        $user = new User();
+        $user_data = $user->getUserByEmail($input['email']);
+
+        // Always return success to prevent email enumeration
+        if (!$user_data) {
+            Response::success([], "If the email exists, a reset link has been sent");
+            return;
+        }
+
+        $token = bin2hex(random_bytes(32));
+        $expiry = date('Y-m-d H:i:s', strtotime('+1 hour'));
+
+        $user->createResetToken($user_data['User_ID'], $token, $expiry);
+
+        Logger::info("Password reset requested", ['email' => $input['email']]);
+
+        Response::success([
+            'token' => $token,
+            'message' => 'Reset link sent to your email'
+        ], "If the email exists, a reset link has been sent");
+    }
+
+    public static function resetPassword() {
+        $input = json_decode(file_get_contents("php://input"), true);
+
+        if (empty($input['token']) || empty($input['password'])) {
+            Response::error("Token and new password are required", BAD_REQUEST);
+        }
+
+        if (strlen($input['password']) < 6) {
+            Response::error("Password must be at least 6 characters", BAD_REQUEST);
+        }
+
+        $user = new User();
+        $reset_data = $user->getResetToken($input['token']);
+
+        if (!$reset_data) {
+            Response::error("Invalid or expired reset token", BAD_REQUEST);
+        }
+
+        $success = $user->updatePassword($reset_data['User_ID'], $input['password']);
+
+        if (!$success) {
+            Response::error("Failed to reset password", SERVER_ERROR);
+        }
+
+        $user->deleteResetToken($input['token']);
+
+        Logger::info("Password reset completed", ['user_id' => $reset_data['User_ID']]);
+
+        Response::success([], "Password reset successfully");
+    }
+
+    public static function changePassword() {
+        $input = json_decode(file_get_contents("php://input"), true);
+
+        if (empty($input['currentPassword']) || empty($input['newPassword'])) {
+            Response::error("Current and new password are required", BAD_REQUEST);
+        }
+
+        if (strlen($input['newPassword']) < 6) {
+            Response::error("New password must be at least 6 characters", BAD_REQUEST);
+        }
+
+        // Get user from token
+        $headers = getallheaders();
+        $auth = $headers['Authorization'] ?? $headers['authorization'] ?? '';
+        $token = str_replace('Bearer ', '', $auth);
+
+        if (!$token) {
+            Response::error("Authentication required", UNAUTHORIZED);
+        }
+
+        $decoded = JWT::decode($token);
+        if (!$decoded || !isset($decoded['userId'])) {
+            Response::error("Invalid token", UNAUTHORIZED);
+        }
+
+        $user = new User();
+        $user_data = $user->login(
+            $decoded['email'],
+            $input['currentPassword']
+        );
+
+        if (!$user_data) {
+            Response::error("Current password is incorrect", UNAUTHORIZED);
+        }
+
+        $success = $user->updatePassword($decoded['userId'], $input['newPassword']);
+
+        if (!$success) {
+            Response::error("Failed to update password", SERVER_ERROR);
+        }
+
+        Logger::info("Password changed", ['user_id' => $decoded['userId']]);
+
+        Response::success([], "Password changed successfully");
+    }
 }

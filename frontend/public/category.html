@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Ghana Warehouse Connect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <a href="../index.html" class="logo">
+                        <span class="logo-icon"><i class="fa-solid fa-warehouse"></i></span>
+                        <span class="logo-text">GWC</span>
+                    </a>
+                    <div class="search-container">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search products..." aria-label="Search products">
+                        <button class="search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    <div class="header-actions">
+                        <a href="profile.html" class="action-link" aria-label="Account"><i class="fa-solid fa-user"></i></a>
+                        <a href="wishlist.html" class="action-link" aria-label="Wishlist"><i class="fa-solid fa-heart"></i></a>
+                        <a href="cart.html" class="action-link" aria-label="Cart">
+                            <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+                            <span class="badge" id="cartCount" style="display:none">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <button class="btn btn-outline mobile-filter-toggle" onclick="toggleMobileFilters()"><i class="fa-solid fa-filter"></i> Show Filters</button>
+            <div class="category-layout">
+                <aside class="sidebar" id="filterSidebar">
+                    <div class="filter-section">
+                        <h3>Price Range</h3>
+                        <input type="range" id="priceRange" min="0" max="1000" value="1000" class="price-slider">
+                        <div class="price-display">GHS 0 - <span id="priceValue">1000</span></div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Category</h3>
+                        <div class="filter-options" id="categoryFilters"></div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Rating</h3>
+                        <div class="filter-options">
+                            <label><input type="checkbox" value="5" class="rating-check"> <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (5 stars)</label>
+                            <label><input type="checkbox" value="4" class="rating-check"> <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (4+ stars)</label>
+                            <label><input type="checkbox" value="3" class="rating-check"> <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> (3+ stars)</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Availability</h3>
+                        <div class="filter-options">
+                            <label><input type="checkbox" value="in-stock" class="avail-check"> In Stock</label>
+                            <label><input type="checkbox" value="on-sale" class="avail-check"> On Sale</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Discount</h3>
+                        <div class="filter-options">
+                            <label><input type="checkbox" value="50" class="discount-check"> 50% & above</label>
+                            <label><input type="checkbox" value="30" class="discount-check"> 30% & above</label>
+                            <label><input type="checkbox" value="10" class="discount-check"> 10% & above</label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-block" id="resetFilters">Reset Filters</button>
+                </aside>
+
+                <section class="products-section">
+                    <div class="products-header">
+                        <div class="results-info">
+                            <h1 id="pageTitle">Products</h1>
+                            <p id="resultsCount">Loading...</p>
+                        </div>
+                        <div class="sort-container">
+                            <label>Sort by:</label>
+                            <select id="sortBy" class="sort-select">
+                                <option value="relevance">Relevance</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">Rating</option>
+                                <option value="newest">Newest</option>
+                                <option value="bestselling">Best Selling</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="products-grid" id="productsGrid"></div>
+
+                    <div id="paginationContainer"></div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Ghana Warehouse Connect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/wishlist.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/validation.js"></script>
+
+    <script>
+        var allProducts = [];
+        var filteredProducts = [];
+        var currentPage = 1;
+        var itemsPerPage = 12;
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            showLoading('productsGrid');
+            await loadProducts();
+            loadCategoriesFromProducts();
+            applyUrlFilters();
+        });
+
+        async function loadProducts() {
+            var params = {};
+            var searchQuery = getQueryParam('search');
+            if (searchQuery) params.q = searchQuery;
+
+            try {
+                var response = await API.getProducts(params);
+                if (response.success && response.data) {
+                    allProducts = Array.isArray(response.data) ? response.data : (response.data.products || []);
+                } else {
+                    allProducts = [];
+                }
+            } catch (e) {
+                allProducts = [];
+            }
+
+            filteredProducts = allProducts.slice();
+            displayProducts();
+        }
+
+        function loadCategoriesFromProducts() {
+            var cats = [];
+            var seen = {};
+            allProducts.forEach(function(p) {
+                var c = p.Category || p.category;
+                if (c && !seen[c]) { seen[c] = true; cats.push(c); }
+            });
+
+            var container = document.getElementById('categoryFilters');
+            container.innerHTML = cats.map(function(cat) {
+                return '<label><input type="checkbox" value="' + escapeHtml(cat) + '" class="category-check"> ' + escapeHtml(cat) + '</label>';
+            }).join('');
+
+            container.querySelectorAll('.category-check').forEach(function(cb) {
+                cb.addEventListener('change', applyFilters);
+            });
+        }
+
+        function applyUrlFilters() {
+            var category = getQueryParam('category');
+            var search = getQueryParam('search');
+            var sort = getQueryParam('sort');
+
+            if (search) {
+                document.getElementById('searchInput').value = search;
+                document.getElementById('pageTitle').textContent = 'Search: ' + search;
+            }
+
+            if (category) {
+                var cb = document.querySelector('.category-check[value="' + category + '"]');
+                if (cb) cb.checked = true;
+                document.getElementById('pageTitle').textContent = category;
+            }
+
+            if (sort) {
+                document.getElementById('sortBy').value = sort;
+                handleSort();
+            }
+
+            applyFilters();
+        }
+
+        function displayProducts() {
+            var start = (currentPage - 1) * itemsPerPage;
+            var end = start + itemsPerPage;
+            var pageProducts = filteredProducts.slice(start, end);
+            var grid = document.getElementById('productsGrid');
+
+            if (pageProducts.length === 0) {
+                grid.innerHTML = createEmptyState('No products found matching your filters', 'Reset Filters', null, 'magnifying-glass');
+                document.getElementById('paginationContainer').innerHTML = '';
+                return;
+            }
+
+            grid.innerHTML = pageProducts.map(function(p) { return createProductCard(p); }).join('');
+
+            var totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+            document.getElementById('paginationContainer').innerHTML = createPagination(currentPage, totalPages, 'goToPage');
+
+            updateResultsCount();
+        }
+
+        function applyFilters() {
+            var selectedCategories = Array.from(document.querySelectorAll('.category-check:checked')).map(function(cb) { return cb.value; });
+            var maxPrice = parseFloat(document.getElementById('priceRange').value);
+
+            filteredProducts = allProducts.filter(function(product) {
+                var catMatch = selectedCategories.length === 0 || selectedCategories.indexOf(product.Category || product.category) >= 0;
+                var priceMatch = (product.UnitPrice || product.price || 0) <= maxPrice;
+                return catMatch && priceMatch;
+            });
+
+            currentPage = 1;
+            displayProducts();
+        }
+
+        function updateResultsCount() {
+            var count = filteredProducts.length;
+            document.getElementById('resultsCount').textContent = 'Showing ' + count + ' product' + (count !== 1 ? 's' : '');
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            displayProducts();
+            window.scrollTo(0, 0);
+        }
+
+        function handleSort() {
+            var sortBy = document.getElementById('sortBy').value;
+            switch (sortBy) {
+                case 'price-low':
+                    filteredProducts.sort(function(a, b) { return (a.UnitPrice || a.price || 0) - (b.UnitPrice || b.price || 0); });
+                    break;
+                case 'price-high':
+                    filteredProducts.sort(function(a, b) { return (b.UnitPrice || b.price || 0) - (a.UnitPrice || a.price || 0); });
+                    break;
+                case 'rating':
+                    filteredProducts.sort(function(a, b) { return (b.rating || 0) - (a.rating || 0); });
+                    break;
+                case 'newest':
+                    filteredProducts.sort(function(a, b) { return new Date(b.CreatedAt || b.created_at || 0) - new Date(a.CreatedAt || a.created_at || 0); });
+                    break;
+                default:
+                    break;
+            }
+            currentPage = 1;
+            displayProducts();
+        }
+
+        document.getElementById('priceRange').addEventListener('input', function() {
+            document.getElementById('priceValue').textContent = this.value;
+            applyFilters();
+        });
+
+        document.getElementById('sortBy').addEventListener('change', function() {
+            applyFilters();
+            handleSort();
+        });
+
+        document.getElementById('resetFilters').addEventListener('click', function() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(function(cb) { cb.checked = false; });
+            document.getElementById('priceRange').value = 1000;
+            document.getElementById('priceValue').textContent = 1000;
+            filteredProducts = allProducts.slice();
+            currentPage = 1;
+            displayProducts();
+        });
+
+        function toggleMobileFilters() {
+            document.getElementById('filterSidebar').classList.toggle('mobile-open');
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                var query = this.value;
+                if (query) window.location.href = 'category.html?search=' + encodeURIComponent(query);
+            }
+        });
+
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            var query = document.getElementById('searchInput').value;
+            if (query) window.location.href = 'category.html?search=' + encodeURIComponent(query);
+        });
+    </script>
+</body>
+</html>

@@ -192,14 +192,12 @@ class ProductController
     }
     public static function searchProducts()
     {
-        $input = json_decode(file_get_contents("php://input"), true);
+        $searchTerm = isset($_GET['q']) ? trim($_GET['q']) : null;
 
-        $searchTerm = isset($input['q']) ? trim($input['q']) : null;
-
-        // if (!$searchTerm || strlen($searchTerm) < 2) {
-        //     Response::error("Search term too short", BAD_REQUEST);
-        //     return;
-        // }
+        if (!$searchTerm) {
+            $input = json_decode(file_get_contents("php://input"), true);
+            $searchTerm = isset($input['q']) ? trim($input['q']) : null;
+        }
 
         $product = new Product();
         $results = $product->searchProducts($searchTerm);

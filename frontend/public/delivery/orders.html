@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Deliveries - Delivery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+</head>
+<body>
+    <div class="admin-layout" id="adminLayout"></div>
+
+    <div class="modal-overlay" id="deliveryModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Update Delivery</h3>
+                <button class="modal-close" onclick="AdminApp.hideModal('deliveryModal')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="deliveryModalBody">
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="deliveryStatus">
+                        <option value="Out for Delivery">Out for Delivery</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Failed">Failed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea id="deliveryNotes" rows="3" placeholder="Add delivery notes..."></textarea>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" onclick="AdminApp.hideModal('deliveryModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="updateDelivery()">Update</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/utils.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="../../js/api.js"></script>
+    <script src="../../js/components.js"></script>
+    <script src="../../js/admin.js"></script>
+    <script>
+        var allDeliveries = [];
+        var editingDeliveryId = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!AdminApp.requireDelivery()) return;
+            var content = AdminApp.initLayout('My Deliveries', 'orders');
+
+            var html = '<div class="page-header">';
+            html += '<div class="page-header-left"><input type="text" id="searchBox" placeholder="Search deliveries..." oninput="searchDeliveries(this.value)"></div>';
+            html += '</div>';
+            html += '<div id="deliveryTable"></div>';
+            content.innerHTML = html;
+
+            loadDeliveries();
+        });
+
+        async function loadDeliveries() {
+            var result = await API.getMyOrders();
+            if (result.success) allDeliveries = result.data || result.orders || [];
+            renderTable();
+        }
+
+        function renderTable() {
+            var search = (document.getElementById('searchBox') ? document.getElementById('searchBox').value : '').toLowerCase();
+            var filtered = allDeliveries.filter(function(o) {
+                return o.Status !== 'Delivered' && (!search || String(o.Order_ID).indexOf(search) !== -1 || (o.CustomerName || '').toLowerCase().indexOf(search) !== -1);
+            });
+
+            if (filtered.length === 0) {
+                document.getElementById('deliveryTable').innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i class="fa-solid fa-check-double"></i></div><p>No pending deliveries</p></div>';
+                return;
+            }
+
+            var html = '<table class="data-table"><thead><tr><th>Order ID</th><th>Customer</th><th>Address</th><th>Total</th><th>Status</th><th>Actions</th></tr></thead><tbody>';
+            filtered.forEach(function(o) {
+                html += '<tr>';
+                html += '<td>#' + o.Order_ID + '</td>';
+                html += '<td>' + escapeHtml(o.CustomerName || o.User_ID) + '</td>';
+                html += '<td>' + escapeHtml(o.Delivery_Address || o.Address || '-') + '</td>';
+                html += '<td>GH\u20B5' + (o.Total_Amount || o.Total || 0).toFixed(2) + '</td>';
+                html += '<td>' + AdminApp.statusBadge(o.Status) + '</td>';
+                html += '<td class="actions"><button class="btn btn-sm btn-primary" onclick="openDeliveryModal(' + o.Order_ID + ')"><i class="fa-solid fa-pen"></i> Update</button></td>';
+                html += '</tr>';
+            });
+            html += '</tbody></table>';
+            document.getElementById('deliveryTable').innerHTML = html;
+        }
+
+        function searchDeliveries() { renderTable(); }
+
+        function openDeliveryModal(orderId) {
+            editingDeliveryId = orderId;
+            document.getElementById('deliveryStatus').value = 'Out for Delivery';
+            document.getElementById('deliveryNotes').value = '';
+            AdminApp.showModal('deliveryModal');
+        }
+
+        async function updateDelivery() {
+            if (!editingDeliveryId) return;
+            var status = document.getElementById('deliveryStatus').value;
+            var notes = document.getElementById('deliveryNotes').value;
+            var result = await API.updateDeliveryStatus(editingDeliveryId, status, notes);
+            if (result && result.success !== false) {
+                showAlert('Delivery updated', 'success');
+                AdminApp.hideModal('deliveryModal');
+                loadDeliveries();
+            } else {
+                showAlert((result && result.message) || 'Update failed', 'error');
+            }
+        }
+    </script>
+</body>
+</html>

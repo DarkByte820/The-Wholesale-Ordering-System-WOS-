@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - Ghana Warehouse Connect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <a href="../index.html" class="logo">
+                        <span class="logo-icon"><i class="fa-solid fa-warehouse"></i></span>
+                        <span class="logo-text">GWC</span>
+                    </a>
+                    <div class="search-container">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search..." aria-label="Search">
+                        <button class="search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    <div class="header-actions">
+                        <a href="profile.html" class="action-link" aria-label="Account"><i class="fa-solid fa-user"></i></a>
+                        <a href="wishlist.html" class="action-link" aria-label="Wishlist"><i class="fa-solid fa-heart"></i></a>
+                        <a href="cart.html" class="action-link" aria-label="Cart">
+                            <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+                            <span class="badge" id="cartCount" style="display:none">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h1><i class="fa-solid fa-box"></i> My Orders</h1>
+
+            <div class="orders-filters">
+                <button class="filter-btn active" onclick="filterOrders('all', this)">All Orders</button>
+                <button class="filter-btn" onclick="filterOrders('processing', this)">Processing</button>
+                <button class="filter-btn" onclick="filterOrders('shipped', this)">Shipped</button>
+                <button class="filter-btn" onclick="filterOrders('delivered', this)">Delivered</button>
+                <button class="filter-btn" onclick="filterOrders('cancelled', this)">Cancelled</button>
+            </div>
+
+            <div id="ordersContainer"></div>
+
+            <div id="emptyOrders" class="empty-state" style="display: none;">
+                <div class="empty-state-icon"><i class="fa-solid fa-box-open fa-3x"></i></div>
+                <p>No orders yet</p>
+                <a href="category.html" class="btn btn-primary">Start Shopping</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Ghana Warehouse Connect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/components.js"></script>
+
+    <script>
+        var allOrders = [];
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            showLoading('ordersContainer');
+            await loadOrders();
+        });
+
+        async function loadOrders() {
+            var localOrders = JSON.parse(localStorage.getItem('gwc_orders') || '[]');
+
+            if (isLoggedIn()) {
+                try {
+                    var response = await API.getMyOrders();
+                    if (response.success && response.data) {
+                        var apiOrders = Array.isArray(response.data) ? response.data : (response.data.orders || []);
+                        var merged = apiOrders.map(function(o) {
+                            return {
+                                orderId: o.OrderID || o.orderId || o.id,
+                                items: o.items || o.Items || [],
+                                total: o.Total || o.total || 0,
+                                status: o.Status || o.status || 'Processing',
+                                orderDate: o.CreatedAt || o.orderDate || o.created_at || new Date().toISOString()
+                            };
+                        });
+                        allOrders = merged.concat(localOrders);
+                    } else {
+                        allOrders = localOrders;
+                    }
+                } catch (e) {
+                    allOrders = localOrders;
+                }
+            } else {
+                allOrders = localOrders;
+            }
+
+            displayOrders('all');
+        }
+
+        function displayOrders(filter) {
+            var container = document.getElementById('ordersContainer');
+            var empty = document.getElementById('emptyOrders');
+
+            var filtered = filter === 'all' ? allOrders : allOrders.filter(function(o) {
+                return (o.status || '').toLowerCase() === filter;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = '';
+                empty.style.display = 'block';
+                return;
+            }
+
+            empty.style.display = 'none';
+            container.innerHTML = filtered.map(function(order) { return createOrderCard(order); }).join('');
+        }
+
+        function filterOrders(filter, el) {
+            document.querySelectorAll('.filter-btn').forEach(function(btn) { btn.classList.remove('active'); });
+            if (el) el.classList.add('active');
+            displayOrders(filter);
+        }
+
+        function viewOrderDetails(orderId) {
+            var order = allOrders.find(function(o) { return o.orderId === orderId || o.OrderID === orderId; });
+            if (!order) return;
+            var items = (order.items || []).map(function(i) {
+                return '<div style="display:flex;justify-content:space-between;padding:0.3rem 0;border-bottom:1px solid var(--gray-lighter)"><span>' + escapeHtml(i.name || i.Name || '') + ' x ' + (i.quantity || i.Quantity || 1) + '</span><span>' + formatCurrency((i.price || i.Price || 0) * (i.quantity || i.Quantity || 1)) + '</span></div>';
+            }).join('');
+            showAlert('Order: ' + orderId + ' | Status: ' + order.status + ' | Total: ' + formatCurrency(order.total), 'success');
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && this.value) window.location.href = 'category.html?search=' + encodeURIComponent(this.value);
+        });
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            var q = document.getElementById('searchInput').value;
+            if (q) window.location.href = 'category.html?search=' + encodeURIComponent(q);
+        });
+    </script>
+</body>
+</html>

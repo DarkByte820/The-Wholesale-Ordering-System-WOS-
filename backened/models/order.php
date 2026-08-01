@@ -117,8 +117,10 @@ class Order {
         $offset = ($page - 1) * $limit;
 
         $stmt = $this->db->prepare("
-            SELECT *
-            FROM orders
+            SELECT * 
+from orders o 
+left join users u on  
+ u.user_id= o.userID  
             ORDER BY OrderID DESC
             LIMIT ? OFFSET ?
         ");

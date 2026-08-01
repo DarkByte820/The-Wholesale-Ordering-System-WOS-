@@ -13,11 +13,11 @@ const HTTP_NOT_FOUND = 404;
 const HTTP_SERVER_ERROR = 500;
 
 // User Roles
-const ROLE_BUNDLE_CUSTOMER = 'BundleCustomer';
-const ROLE_WHOLESALE_CUSTOMER = 'WholesaleCustomer';
-const ROLE_WAREHOUSE_ADMIN = 'WarehouseAdmin';
-const ROLE_DELIVERY_PERSONNEL = 'DeliveryPersonnel';
-const ROLE_SYSTEM_ADMIN = 'SystemAdmin';
+const ROLE_BUNDLE_CUSTOMER = 'bundle_customer';
+const ROLE_WHOLESALE_CUSTOMER = 'wholesale_customer';
+const ROLE_WAREHOUSE_ADMIN = 'warehouse_admin';
+const ROLE_DELIVERY_PERSONNEL = 'delivery_personnel';
+const ROLE_SYSTEM_ADMIN = 'system_admin';
 
 // Order Status
 const ORDER_STATUS_PENDING = 'Pending';

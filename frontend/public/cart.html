@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Ghana Warehouse Connect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <a href="../index.html" class="logo">
+                        <span class="logo-icon"><i class="fa-solid fa-warehouse"></i></span>
+                        <span class="logo-text">GWC</span>
+                    </a>
+                    <div class="search-container">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Continue shopping..." aria-label="Search products">
+                        <button class="search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    <div class="header-actions">
+                        <a href="profile.html" class="action-link" aria-label="Account"><i class="fa-solid fa-user"></i></a>
+                        <a href="wishlist.html" class="action-link" aria-label="Wishlist"><i class="fa-solid fa-heart"></i></a>
+                        <a href="cart.html" class="action-link active" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h1><i class="fa-solid fa-cart-shopping"></i> Shopping Cart</h1>
+
+            <div class="cart-layout">
+                <section class="cart-items">
+                    <div id="emptyCartMessage" class="empty-state" style="display: none;">
+                        <div class="empty-state-icon"><i class="fa-solid fa-cart-shopping fa-3x"></i></div>
+                        <p>Your cart is empty</p>
+                        <a href="category.html" class="btn btn-primary">Continue Shopping</a>
+                    </div>
+                    <div id="cartItemsContainer"></div>
+                </section>
+
+                <aside class="order-summary">
+                    <h2>Order Summary</h2>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">GHS 0.00</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Delivery Fee</span>
+                        <span id="deliveryFee">GHS 5.00</span>
+                    </div>
+
+                    <div class="summary-row discount" style="display:none">
+                        <span>Discount</span>
+                        <span id="discount">-GHS 0.00</span>
+                    </div>
+
+                    <div class="promo-code">
+                        <input type="text" id="promoInput" placeholder="Enter promo code" aria-label="Promo code">
+                        <button onclick="applyPromo()" class="btn btn-outline">Apply</button>
+                    </div>
+
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="total">GHS 0.00</span>
+                    </div>
+
+                    <button class="btn btn-primary btn-block btn-lg" onclick="goToCheckout()">
+                        Proceed to Checkout
+                    </button>
+
+                    <a href="category.html" class="btn btn-outline btn-block">
+                        Continue Shopping
+                    </a>
+
+                    <div class="trust-badges">
+                        <span><i class="fa-solid fa-lock"></i> Secure Checkout</span>
+                        <span><i class="fa-solid fa-circle-check"></i> Verified Sellers</span>
+                        <span><i class="fa-solid fa-truck-fast"></i> Fast Delivery</span>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Ghana Warehouse Connect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/wishlist.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/validation.js"></script>
+
+    <script>
+        var currentDiscount = 0;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            displayCart();
+        });
+
+        function displayCart() {
+            var cart = getCart();
+            var container = document.getElementById('cartItemsContainer');
+            var emptyMessage = document.getElementById('emptyCartMessage');
+
+            if (cart.length === 0) {
+                container.innerHTML = '';
+                emptyMessage.style.display = 'block';
+                document.querySelector('.order-summary').style.display = 'none';
+                return;
+            }
+
+            emptyMessage.style.display = 'none';
+            document.querySelector('.order-summary').style.display = 'block';
+
+            container.innerHTML = cart.map(function(item, index) {
+                return createCartItem(item, index);
+            }).join('');
+
+            updateOrderSummary();
+        }
+
+        function updateQuantity(index, newQty) {
+            if (newQty <= 0) {
+                if (confirm('Remove this item from cart?')) {
+                    removeFromCart(index);
+                    displayCart();
+                }
+            } else {
+                updateCartItemQuantity(index, newQty);
+                displayCart();
+            }
+        }
+
+        function saveForLater(index) {
+            var cart = getCart();
+            var item = cart[index];
+            if (!item) return;
+
+            var saved = JSON.parse(localStorage.getItem('gwc_savedItems') || '[]');
+            saved.push(item);
+            localStorage.setItem('gwc_savedItems', JSON.stringify(saved));
+            removeFromCart(index);
+            displayCart();
+            showAlert('Item saved for later', 'success');
+        }
+
+        function updateOrderSummary() {
+            var cart = getCart();
+            var subtotal = cart.reduce(function(sum, item) { return sum + (item.price * item.quantity); }, 0);
+            var deliveryFee = subtotal > 100 ? 0 : 5;
+            var discount = currentDiscount > 0 ? subtotal * currentDiscount : 0;
+            var total = subtotal + deliveryFee - discount;
+
+            document.getElementById('subtotal').textContent = formatCurrency(subtotal);
+            document.getElementById('deliveryFee').textContent = deliveryFee === 0 ? 'FREE' : formatCurrency(deliveryFee);
+
+            var discountRow = document.querySelector('.summary-row.discount');
+            if (discount > 0) {
+                discountRow.style.display = 'flex';
+                document.getElementById('discount').textContent = '-' + formatCurrency(discount);
+            } else {
+                discountRow.style.display = 'none';
+            }
+
+            document.getElementById('total').textContent = formatCurrency(total);
+
+            sessionStorage.setItem('orderSummary', JSON.stringify({
+                subtotal: subtotal,
+                deliveryFee: deliveryFee,
+                discount: discount,
+                total: total
+            }));
+        }
+
+        function applyPromo() {
+            var code = document.getElementById('promoInput').value.trim().toUpperCase();
+            var promoCodes = { 'SAVE10': 0.10, 'SAVE20': 0.20, 'SAVE30': 0.30, 'GWC10': 0.10 };
+
+            if (promoCodes[code]) {
+                currentDiscount = promoCodes[code];
+                updateOrderSummary();
+                var cart = getCart();
+                var subtotal = cart.reduce(function(sum, item) { return sum + (item.price * item.quantity); }, 0);
+                var saved = subtotal * currentDiscount;
+                showAlert('Promo code applied! You saved ' + formatCurrency(saved), 'success');
+            } else {
+                showAlert('Invalid promo code', 'error');
+            }
+        }
+
+        function goToCheckout() {
+            var cart = getCart();
+            if (cart.length === 0) {
+                showAlert('Your cart is empty', 'error');
+                return;
+            }
+            window.location.href = 'checkout.html';
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && this.value) {
+                window.location.href = 'category.html?search=' + encodeURIComponent(this.value);
+            }
+        });
+
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            var query = document.getElementById('searchInput').value;
+            if (query) window.location.href = 'category.html?search=' + encodeURIComponent(query);
+        });
+    </script>
+</body>
+</html>

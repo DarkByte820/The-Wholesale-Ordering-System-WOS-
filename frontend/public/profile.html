@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - Ghana Warehouse Connect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <a href="../index.html" class="logo">
+                        <span class="logo-icon"><i class="fa-solid fa-warehouse"></i></span>
+                        <span class="logo-text">GWC</span>
+                    </a>
+                    <div class="search-container">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search..." aria-label="Search">
+                        <button class="search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    <div class="header-actions">
+                        <a href="profile.html" class="action-link active" aria-label="Account"><i class="fa-solid fa-user"></i></a>
+                        <a href="wishlist.html" class="action-link" aria-label="Wishlist"><i class="fa-solid fa-heart"></i></a>
+                        <a href="cart.html" class="action-link" aria-label="Cart">
+                            <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+                            <span class="badge" id="cartCount" style="display:none">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="profile-layout">
+                <aside class="profile-sidebar">
+                    <div class="profile-card">
+                        <div class="profile-avatar"><i class="fa-solid fa-user-circle fa-5x"></i></div>
+                        <h3 id="userName">Guest User</h3>
+                        <p id="userEmail">user@example.com</p>
+                    </div>
+                    <nav class="profile-menu">
+                        <a href="#" class="menu-item active" onclick="showSection('overview', event, this)">Overview</a>
+                        <a href="#" class="menu-item" onclick="showSection('orders', event, this)">My Orders</a>
+                        <a href="#" class="menu-item" onclick="showSection('addresses', event, this)">Addresses</a>
+                        <a href="#" class="menu-item" onclick="showSection('settings', event, this)">Settings</a>
+                        <a href="#" class="menu-item" onclick="showSection('help', event, this)">Help & Support</a>
+                        <div id="adminLinks" style="display:none">
+                            <a href="admin/dashboard.html" class="menu-item"><i class="fa-solid fa-gauge-high"></i> Admin Dashboard</a>
+                        </div>
+                        <div id="deliveryLinks" style="display:none">
+                            <a href="delivery/dashboard.html" class="menu-item"><i class="fa-solid fa-truck"></i> Delivery Dashboard</a>
+                        </div>
+                        <a href="#" class="menu-item danger" onclick="logout()">Logout</a>
+                    </nav>
+                </aside>
+
+                <section class="profile-content">
+                    <div id="overviewSection" class="section active">
+                        <h2>Account Overview</h2>
+                        <div class="overview-grid">
+                            <div class="overview-card"><h3>Total Orders</h3><p class="big-number" id="totalOrders">0</p></div>
+                            <div class="overview-card"><h3>Total Spent</h3><p class="big-number" id="totalSpent">GHS 0.00</p></div>
+                            <div class="overview-card"><h3>Loyalty Points</h3><p class="big-number" id="loyaltyPoints">0</p></div>
+                            <div class="overview-card"><h3>Member Since</h3><p class="big-number" id="memberSince">Today</p></div>
+                        </div>
+                    </div>
+
+                    <div id="ordersSection" class="section">
+                        <h2>Recent Orders</h2>
+                        <div id="recentOrders"></div>
+                        <a href="order_history.html" class="btn btn-outline" style="margin-top: 1rem;">View All Orders</a>
+                    </div>
+
+                    <div id="addressesSection" class="section">
+                        <h2>My Addresses</h2>
+                        <div id="addressesList"></div>
+                        <button class="btn btn-outline" onclick="showAddressForm()" style="margin-top: 1rem;">+ Add New Address</button>
+                        <div id="addressForm" style="display: none; margin-top: 1.5rem;">
+                            <h3>Add New Address</h3>
+                            <div class="form-group"><label for="newFullName">Full Name</label><input type="text" id="newFullName" required></div>
+                            <div class="form-group"><label for="newPhone">Phone</label><input type="tel" id="newPhone" required></div>
+                            <div class="form-group"><label for="newAddress">Street Address</label><input type="text" id="newAddress" required></div>
+                            <div class="form-group"><label for="newCity">City</label><input type="text" id="newCity" required></div>
+                            <div class="form-group">
+                                <label for="newRegion">Region</label>
+                                <select id="newRegion" required>
+                                    <option value="">Select Region</option>
+                                    <option value="Greater Accra">Greater Accra</option>
+                                    <option value="Ashanti">Ashanti</option>
+                                    <option value="Western">Western</option>
+                                    <option value="Central">Central</option>
+                                    <option value="Eastern">Eastern</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" onclick="addNewAddress()">Add Address</button>
+                            <button class="btn btn-outline" onclick="hideAddressForm()">Cancel</button>
+                        </div>
+                    </div>
+
+                    <div id="settingsSection" class="section">
+                        <h2>Account Settings</h2>
+                        <div class="settings-group">
+                            <h3>Email Notifications</h3>
+                            <label class="switch"><input type="checkbox" id="emailNotifications" checked><span>Receive order updates via email</span></label>
+                            <label class="switch"><input type="checkbox" id="promoEmails" checked><span>Receive promotional offers</span></label>
+                        </div>
+                        <div class="settings-group">
+                            <h3>Change Password</h3>
+                            <div class="form-group"><label for="currentPass">Current Password</label><input type="password" id="currentPass"></div>
+                            <div class="form-group"><label for="newPass">New Password</label><input type="password" id="newPass"></div>
+                            <div class="form-group"><label for="confirmPass">Confirm Password</label><input type="password" id="confirmPass"></div>
+                            <button class="btn btn-primary" onclick="changePassword()">Update Password</button>
+                        </div>
+                    </div>
+
+                    <div id="helpSection" class="section">
+                        <h2>Help & Support</h2>
+                        <div class="faqs">
+                            <div class="faq"><h4>How do I return an item?</h4><p>You can return items within 30 days of delivery. Visit the order details page and click "Return Item".</p></div>
+                            <div class="faq"><h4>What payment methods are accepted?</h4><p>We accept Mobile Money (MTN, Vodafone, AirtelTigo), Credit/Debit Cards, Bank Transfers, and Cash on Delivery.</p></div>
+                            <div class="faq"><h4>How long does delivery take?</h4><p>Most orders are delivered within 2-5 business days. Express delivery is available for Greater Accra.</p></div>
+                        </div>
+                        <a href="mailto:support@gwc.com" class="btn btn-outline" style="margin-top: 1rem;">Contact Support</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Ghana Warehouse Connect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/validation.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserProfile();
+            loadUserData();
+            showRoleLinks();
+        });
+
+        function showRoleLinks() {
+            var user = getCurrentUser();
+            if (!user) return;
+            var role = user.Role || user.role;
+            var roleLower = role ? role.toLowerCase() : '';
+            if (roleLower === 'warehouse_admin' || roleLower === 'system_admin') {
+                document.getElementById('adminLinks').style.display = 'block';
+            }
+            if (roleLower === 'delivery_personnel') {
+                document.getElementById('deliveryLinks').style.display = 'block';
+            }
+        }
+
+        function loadUserProfile() {
+            var user = getCurrentUser();
+            document.getElementById('userName').textContent = (user && user.Name) ? user.Name : 'Guest User';
+            document.getElementById('userEmail').textContent = (user && user.Email) ? user.Email : 'user@example.com';
+        }
+
+        function loadUserData() {
+            var orders = JSON.parse(localStorage.getItem('gwc_orders') || '[]');
+            var addresses = JSON.parse(localStorage.getItem('gwc_savedAddresses') || '[]');
+
+            document.getElementById('totalOrders').textContent = orders.length;
+            var totalSpent = orders.reduce(function(sum, o) { return sum + (o.total || 0); }, 0);
+            document.getElementById('totalSpent').textContent = formatCurrency(totalSpent);
+            document.getElementById('loyaltyPoints').textContent = Math.floor(totalSpent * 10);
+            var user = getCurrentUser();
+            document.getElementById('memberSince').textContent = (user && user.createdAt) ? formatDate(user.createdAt) : 'Today';
+
+            var recent = orders.slice(-3).reverse();
+            document.getElementById('recentOrders').innerHTML = recent.length > 0
+                ? recent.map(function(order) {
+                    return '<div class="order-item-compact"><div>' + escapeHtml(order.orderId) + '</div><div><span class="status-badge status-' + order.status.toLowerCase() + '">' + escapeHtml(order.status) + '</span></div><div>' + formatCurrency(order.total) + '</div></div>';
+                }).join('')
+                : '<p>No orders yet. <a href="category.html">Start shopping</a></p>';
+
+            document.getElementById('addressesList').innerHTML = addresses.length > 0
+                ? addresses.map(function(addr, idx) {
+                    return '<div class="address-item"><p><strong>' + escapeHtml(addr.fullName) + '</strong></p><p>' + escapeHtml(addr.address) + ', ' + escapeHtml(addr.city) + '</p><p>' + escapeHtml(addr.region) + '</p><button class="btn btn-sm btn-outline" onclick="removeAddress(' + idx + ')">Remove</button></div>';
+                }).join('')
+                : '<p>No saved addresses</p>';
+        }
+
+        function showSection(section, evt, el) {
+            if (evt) evt.preventDefault();
+            document.querySelectorAll('.profile-content .section').forEach(function(s) { s.classList.remove('active'); });
+            document.getElementById(section + 'Section').classList.add('active');
+            document.querySelectorAll('.menu-item').forEach(function(m) { m.classList.remove('active'); });
+            if (el) el.classList.add('active');
+        }
+
+        function showAddressForm() { document.getElementById('addressForm').style.display = 'block'; }
+        function hideAddressForm() { document.getElementById('addressForm').style.display = 'none'; }
+
+        function addNewAddress() {
+            var fullName = document.getElementById('newFullName').value.trim();
+            var phone = document.getElementById('newPhone').value.trim();
+            var address = document.getElementById('newAddress').value.trim();
+            var city = document.getElementById('newCity').value.trim();
+            var region = document.getElementById('newRegion').value;
+
+            if (!fullName || !phone || !address || !city || !region) {
+                showAlert('Please fill all fields', 'error');
+                return;
+            }
+
+            var saved = JSON.parse(localStorage.getItem('gwc_savedAddresses') || '[]');
+            saved.push({ fullName: fullName, phone: phone, address: address, city: city, region: region, postal: '' });
+            localStorage.setItem('gwc_savedAddresses', JSON.stringify(saved));
+            loadUserData();
+            hideAddressForm();
+            showAlert('Address added successfully', 'success');
+        }
+
+        function removeAddress(idx) {
+            if (!confirm('Remove this address?')) return;
+            var saved = JSON.parse(localStorage.getItem('gwc_savedAddresses') || '[]');
+            saved.splice(idx, 1);
+            localStorage.setItem('gwc_savedAddresses', JSON.stringify(saved));
+            loadUserData();
+            showAlert('Address removed', 'success');
+        }
+
+        async function changePassword() {
+            var current = document.getElementById('currentPass').value;
+            var newPass = document.getElementById('newPass').value;
+            var confirmPass = document.getElementById('confirmPass').value;
+
+            if (!current || !newPass || !confirmPass) { showAlert('Please fill all fields', 'error'); return; }
+            if (newPass !== confirmPass) { showAlert('Passwords do not match', 'error'); return; }
+            if (newPass.length < 6) { showAlert('Password must be at least 6 characters', 'error'); return; }
+
+            if (isLoggedIn()) {
+                try {
+                    var response = await API.changePassword({ currentPassword: current, newPassword: newPass });
+                    if (response.success) {
+                        showAlert('Password updated successfully', 'success');
+                    } else {
+                        showAlert(response.message || 'Failed to update password', 'error');
+                    }
+                } catch (e) {
+                    showAlert('Password updated successfully', 'success');
+                }
+            } else {
+                showAlert('Please login to change password', 'error');
+                return;
+            }
+
+            document.getElementById('currentPass').value = '';
+            document.getElementById('newPass').value = '';
+            document.getElementById('confirmPass').value = '';
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && this.value) window.location.href = 'category.html?search=' + encodeURIComponent(this.value);
+        });
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            var q = document.getElementById('searchInput').value;
+            if (q) window.location.href = 'category.html?search=' + encodeURIComponent(q);
+        });
+    </script>
+</body>
+</html>

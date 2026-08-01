@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - System Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+</head>
+<body>
+    <div class="admin-layout" id="adminLayout"></div>
+
+    <div class="modal-overlay" id="userModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Update User Role</h3>
+                <button class="modal-close" onclick="AdminApp.hideModal('userModal')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="userModalBody">
+                <div class="form-group">
+                    <label>Select New Role</label>
+                    <select id="newUserRole">
+                        <option value="bundle_customer">Bundle Customer</option>
+                        <option value="wholesale_customer">Wholesale Customer</option>
+                        <option value="warehouse_admin">Warehouse Admin</option>
+                        <option value="delivery_personnel">Delivery Personnel</option>
+                        <option value="system_admin">System Admin</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" onclick="AdminApp.hideModal('userModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveUserRole()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/utils.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="../../js/api.js"></script>
+    <script src="../../js/components.js"></script>
+    <script src="../../js/admin.js"></script>
+    <script>
+        var allUsers = [];
+        var editingUserId = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!AdminApp.requireSystemAdmin()) return;
+            var content = AdminApp.initLayout('User Management', 'users');
+
+            var html = '<div class="page-header">';
+            html += '<div class="page-header-left"><input type="text" id="searchBox" placeholder="Search users..." oninput="searchUsers(this.value)"></div>';
+            html += '</div>';
+            html += '<div id="userTable"></div>';
+            content.innerHTML = html;
+
+            loadUsers();
+        });
+
+        async function loadUsers() {
+            var result = await API.getWholesaleCustomers();
+            if (result.success) allUsers = result.data || result.users || [];
+            renderTable();
+        }
+
+        function renderTable() {
+            var search = (document.getElementById('searchBox') ? document.getElementById('searchBox').value : '').toLowerCase();
+            var filtered = allUsers.filter(function(u) {
+                return !search || (u.Name || '').toLowerCase().indexOf(search) !== -1 || (u.Email || '').toLowerCase().indexOf(search) !== -1;
+            });
+
+            if (filtered.length === 0) {
+                document.getElementById('userTable').innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i class="fa-solid fa-users"></i></div><p>No users found</p></div>';
+                return;
+            }
+
+            var html = '<table class="data-table"><thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead><tbody>';
+            filtered.forEach(function(u) {
+                html += '<tr>';
+                html += '<td>#' + u.User_ID + '</td>';
+                html += '<td>' + escapeHtml(u.Name) + '</td>';
+                html += '<td>' + escapeHtml(u.Email) + '</td>';
+                html += '<td>' + AdminApp.statusBadge(u.Role) + '</td>';
+                html += '<td>' + AdminApp.statusBadge(u.Status || 'Active') + '</td>';
+                html += '<td class="actions">';
+                html += '<button class="btn btn-sm btn-outline" onclick="editUser(' + u.User_ID + ', \'' + escapeHtml(u.Role) + '\')"><i class="fa-solid fa-pen"></i></button>';
+                html += '</td></tr>';
+            });
+            html += '</tbody></table>';
+            document.getElementById('userTable').innerHTML = html;
+        }
+
+        function searchUsers() { renderTable(); }
+
+        function editUser(id, role) {
+            editingUserId = id;
+            document.getElementById('newUserRole').value = role;
+            AdminApp.showModal('userModal');
+        }
+
+        async function saveUserRole() {
+            if (!editingUserId) return;
+            var newRole = document.getElementById('newUserRole').value;
+            var result = await request('PUT', '/admin/users/' + editingUserId + '/role', { role: newRole });
+            if (result && result.success !== false) {
+                showAlert('Role updated', 'success');
+                AdminApp.hideModal('userModal');
+                loadUsers();
+            } else {
+                showAlert((result && result.message) || 'Update failed', 'error');
+            }
+        }
+
+        async function request(method, endpoint, data) {
+            var url = 'http://localhost:8080/api' + endpoint;
+            var options = { method: method, headers: { 'Content-Type': 'application/json' } };
+            var token = localStorage.getItem('token');
+            if (token) options.headers['Authorization'] = 'Bearer ' + token;
+            if (data) options.body = JSON.stringify(data);
+            try {
+                var response = await fetch(url, options);
+                var json = await response.json();
+                return json;
+            } catch(e) { return { success: false, message: e.message }; }
+        }
+    </script>
+</body>
+</html>

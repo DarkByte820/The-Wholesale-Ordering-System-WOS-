@@ -10,11 +10,16 @@ class OrderController
         $user = authenticateUser();
         $input = json_decode(file_get_contents("php://input"), true);
 
+        $orderType = $input['OrderType'] ?? $input['orderType'] ?? null;
+        $deliveryAddress = $input['deliveryAddress'] ?? $input['DeliveryAddress'] ?? null;
+        $deliveryCity = $input['deliveryCity'] ?? $input['DeliveryCity'] ?? 'Accra';
+        $customerPhone = $input['customerPhone'] ?? $input['CustomerPhone'] ?? null;
+
         if (
-            !isset($input['OrderType']) ||
+            !$orderType ||
             !isset($input['items']) ||
-            !isset($input['deliveryAddress']) ||
-            !isset($input['CustomerPhone'])
+            !$deliveryAddress ||
+            !$customerPhone
         ) {
             Response::error("Missing required fields", BAD_REQUEST);
             return;
@@ -34,15 +39,13 @@ class OrderController
             }
         }
 
-        $deliveryCity = $input['deliveryCity'] ?? 'Accra';
-
         $orderId = $order->createOrder(
             $user['userId'],
-            $input['OrderType'],
+            $orderType,
             $totalAmount,
-            $input['deliveryAddress'],
+            $deliveryAddress,
             $deliveryCity,
-            $input['customerPhone']
+            $customerPhone
         );
 
         if (!$orderId) {
@@ -75,9 +78,9 @@ class OrderController
         $delivery = new Delivery();
         $delivery->createDelivery(
             $orderId,
-            $input['deliveryAddress'],
+            $deliveryAddress,
             $deliveryCity,
-            $input['customerPhone']
+            $customerPhone
         );
 
         Logger::info("Order created", [
@@ -128,7 +131,7 @@ class OrderController
         // FIXED: safe key check (your logs showed undefined array key issues)
         if (
             ($orderData['UserID'] ?? null) != $user['userId'] &&
-            ($user['role'] ?? '') !== 'WarehouseAdmin'
+            ($user['role'] ?? '') !== 'warehouse_admin'
         ) {
             Response::error("Unauthorized", FORBIDDEN);
             return;

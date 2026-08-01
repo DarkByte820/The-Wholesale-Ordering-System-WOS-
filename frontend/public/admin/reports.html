@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+</head>
+<body>
+    <div class="admin-layout" id="adminLayout"></div>
+
+    <script src="../../js/utils.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="../../js/api.js"></script>
+    <script src="../../js/components.js"></script>
+    <script src="../../js/admin.js"></script>
+    <script>
+        var currentReport = '';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!AdminApp.requireAdmin()) return;
+            var content = AdminApp.initLayout('Reports', 'reports');
+
+            var html = '<div class="stats-grid">';
+            html += '<div class="stat-card clickable" onclick="loadReport(\'sales\')"><div class="stat-icon gradient-blue"><i class="fa-solid fa-chart-line"></i></div><div class="stat-info"><span class="stat-number">Sales</span><span class="stat-label">Revenue report</span></div></div>';
+            html += '<div class="stat-card clickable" onclick="loadReport(\'inventory\')"><div class="stat-icon gradient-green"><i class="fa-solid fa-boxes-stacked"></i></div><div class="stat-info"><span class="stat-number">Inventory</span><span class="stat-label">Stock levels</span></div></div>';
+            html += '<div class="stat-card clickable" onclick="loadReport(\'payments\')"><div class="stat-icon gradient-pink"><i class="fa-solid fa-money-bill"></i></div><div class="stat-info"><span class="stat-number">Payments</span><span class="stat-label">Payment summary</span></div></div>';
+            html += '<div class="stat-card clickable" onclick="loadReport(\'delivery\')"><div class="stat-icon gradient-orange"><i class="fa-solid fa-truck"></i></div><div class="stat-info"><span class="stat-number">Delivery</span><span class="stat-label">Delivery performance</span></div></div>';
+            html += '</div>';
+            html += '<div id="reportContent"></div>';
+            content.innerHTML = html;
+        });
+
+        async function loadReport(type) {
+            currentReport = type;
+            var container = document.getElementById('reportContent');
+            container.innerHTML = '<div class="loading"><div class="spinner"></div><p>Loading report...</p></div>';
+
+            var result;
+            switch(type) {
+                case 'sales': result = await API.getSalesReport(); break;
+                case 'inventory': result = await API.getInventoryReport(); break;
+                case 'payments': result = await API.getPaymentReport(); break;
+                case 'delivery': result = await API.getDeliveryReport(); break;
+                default: result = { success: false, message: 'Unknown report' };
+            }
+
+            if (!result.success) {
+                container.innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i class="fa-solid fa-triangle-exclamation"></i></div><p>' + (result.message || 'Failed to load report') + '</p></div>';
+                return;
+            }
+
+            var d = result.data || {};
+            var html = '<div class="card"><div class="card-header"><h3><i class="fa-solid fa-chart-pie"></i> ' + type.charAt(0).toUpperCase() + type.slice(1) + ' Report</h3></div><div class="card-body">';
+
+            if (type === 'sales') {
+                html += '<div class="stats-grid">';
+                html += '<div class="stat-card"><div class="stat-info"><span class="stat-number">GH\u20B5' + (d.totalRevenue || 0).toLocaleString() + '</span><span class="stat-label">Total Revenue</span></div></div>';
+                html += '<div class="stat-card"><div class="stat-info"><span class="stat-number">' + (d.totalOrders || 0) + '</span><span class="stat-label">Total Orders</span></div></div>';
+                html += '<div class="stat-card"><div class="stat-info"><span class="stat-number">GH\u20B5' + (d.averageOrderValue || 0).toFixed(2) + '</span><span class="stat-label">Avg Order Value</span></div></div>';
+                html += '</div>';
+            } else if (type === 'inventory') {
+                if (d.products && d.products.length > 0) {
+                    html += '<table class="data-table"><thead><tr><th>Product</th><th>Stock</th><th>Status</th></tr></thead><tbody>';
+                    d.products.forEach(function(p) {
+                        var cls = p.Quantity <= 10 ? 'danger' : (p.Quantity <= 25 ? 'warning' : 'success');
+                        html += '<tr><td>' + escapeHtml(p.Name) + '</td><td>' + p.Quantity + '</td><td><span class="status-badge status-' + cls + '">' + (p.Quantity <= 10 ? 'Low' : 'OK') + '</span></td></tr>';
+                    });
+                    html += '</tbody></table>';
+                } else {
+                    html += '<p>No inventory data available</p>';
+                }
+            } else if (type === 'payments') {
+                html += '<div class="stats-grid">';
+                html += '<div class="stat-card"><div class="stat-info"><span class="stat-number">' + (d.totalPayments || 0) + '</span><span class="stat-label">Total Payments</span></div></div>';
+                html += '<div class="stat-card"><div class="stat-info"><span class="stat-number">GH\u20B5' + (d.totalPaid || 0).toLocaleString() + '</span><span class="stat-label">Amount Paid</span></div></div>';
+                html += '</div>';
+            } else if (type === 'delivery') {
+                html += '<div class="stats-grid">';
+                html += '<div class="stat-card"><div class="stat-info"><span class="stat-number">' + (d.delivered || 0) + '</span><span class="stat-label">Delivered</span></div></div>';
+                html += '<div class="stat-card"><div class="stat-info"><span class="stat-number">' + (d.pending || 0) + '</span><span class="stat-label">Pending</span></div></div>';
+                html += '</div>';
+            }
+
+            html += '</div></div>';
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

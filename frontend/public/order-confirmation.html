@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed - Ghana Warehouse Connect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <a href="../index.html" class="logo">
+                        <span class="logo-icon"><i class="fa-solid fa-warehouse"></i></span>
+                        <span class="logo-text">GWC</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="confirmation-container">
+            <div class="confirmation-card fade-in">
+                <div class="confirmation-icon"><i class="fa-solid fa-circle-check fa-3x" style="color: var(--success-color);"></i></div>
+                <h1>Order Placed Successfully!</h1>
+                <p class="order-id-display">Your order <strong id="orderIdDisplay">-</strong> has been confirmed.</p>
+
+                <div class="delivery-estimate">
+                    <p><i class="fa-solid fa-truck-fast"></i> Estimated delivery: <strong>2-5 business days</strong></p>
+                    <p><i class="fa-solid fa-envelope"></i> A confirmation email will be sent to your registered email address.</p>
+                </div>
+
+                <div id="orderSummaryPreview" style="text-align: left; margin: 2rem 0; padding: 1.5rem; background: var(--gray-lighter); border-radius: var(--border-radius);">
+                    <h3 style="margin-bottom: 1rem;">Order Summary</h3>
+                    <div id="orderItems"></div>
+                    <div class="summary-row total" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--gray-medium);">
+                        <span>Total</span>
+                        <span id="orderTotal">GHS 0.00</span>
+                    </div>
+                </div>
+
+                <div class="confirmation-actions">
+                    <a href="category.html" class="btn btn-primary">Continue Shopping</a>
+                    <a href="order_history.html" class="btn btn-outline">View My Orders</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Ghana Warehouse Connect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/app.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var orderId = getQueryParam('orderId');
+            if (orderId) {
+                document.getElementById('orderIdDisplay').textContent = orderId;
+            }
+
+            var orders = JSON.parse(localStorage.getItem('gwc_orders') || '[]');
+            var order = orders.find(function(o) { return o.orderId === orderId; });
+
+            if (order) {
+                var itemsHtml = (order.items || []).map(function(item) {
+                    return '<div class="summary-item"><span>' + escapeHtml(item.name) + ' x ' + item.quantity + '</span><span>' + formatCurrency(item.price * item.quantity) + '</span></div>';
+                }).join('');
+                document.getElementById('orderItems').innerHTML = itemsHtml;
+                document.getElementById('orderTotal').textContent = formatCurrency(order.total || 0);
+            } else {
+                document.getElementById('orderSummaryPreview').innerHTML = '<p style="text-align:center;color:var(--gray-dark);">Order details not available. Check your <a href="order_history.html">order history</a> for updates.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

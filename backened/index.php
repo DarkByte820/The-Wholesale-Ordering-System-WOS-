@@ -44,7 +44,8 @@ $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
 
 // remove base path if needed
-$request_path = str_replace('/backend/index.php', '', $request_uri);
+$request_path = str_replace('/backened/index.php', '', $request_uri);
+$request_path = str_replace('/backend/index.php', '', $request_path);
 $request_path = trim($request_path, '/');
 
 // ================== ROUTER ==================
@@ -57,8 +58,20 @@ try {
     elseif ($request_path === 'api/auth/login' && $method === 'POST') {
         AuthController::login();
     }
+    elseif ($request_path === 'api/auth/forgot-password' && $method === 'POST') {
+        AuthController::forgotPassword();
+    }
+    elseif ($request_path === 'api/auth/reset-password' && $method === 'POST') {
+        AuthController::resetPassword();
+    }
+    elseif ($request_path === 'api/auth/change-password' && $method === 'POST') {
+        AuthController::changePassword();
+    }
 
     // ========== PRODUCTS ==========
+    elseif ($request_path === 'api/products' && $method === 'GET') {
+        ProductController::getAllProducts();
+    }
     elseif ($request_path === 'api/products' && $method === 'POST') {
         ProductController::createProduct();
     }
@@ -107,6 +120,9 @@ try {
     }
     elseif ($request_path === 'api/cart' && $method === 'POST') {
         CartController::addToCart();
+    }
+    elseif ($request_path === 'api/cart/remove' && $method === 'POST') {
+        CartController::removeFromCart();
     }
 
     // ========== ORDERS ==========

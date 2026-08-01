@@ -65,7 +65,7 @@ class CustomerProfileController {
     public static function getWholesaleCustomers() {
         $user = authenticateUser();
         
-        if ($user['role'] !== 'WarehouseAdmin' && $user['role'] !== 'SystemAdmin') {
+        if ($user['role'] !== 'warehouse_admin' && $user['role'] !== 'system_admin') {
             Response::error("Insufficient permissions", FORBIDDEN);
         }
         
@@ -81,7 +81,7 @@ class CustomerProfileController {
     public static function verifyWholesaleCustomer() {
         $user = authenticateUser();
         
-        if ($user['role'] !== 'SystemAdmin') {
+        if ($user['role'] !== 'system_admin') {
             Response::error("Only system admin can verify", FORBIDDEN);
         }
         

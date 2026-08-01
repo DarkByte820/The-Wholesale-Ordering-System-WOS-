@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Delivery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+</head>
+<body>
+    <div class="admin-layout" id="adminLayout"></div>
+
+    <script src="../../js/utils.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="../../js/api.js"></script>
+    <script src="../../js/components.js"></script>
+    <script src="../../js/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!AdminApp.requireDelivery()) return;
+            var content = AdminApp.initLayout('Delivery Dashboard', 'dashboard');
+
+            async function loadDeliveryDashboard() {
+                try {
+                    var result = await API.getMyOrders();
+                    if (!result.success) {
+                        content.innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i class="fa-solid fa-triangle-exclamation"></i></div><p>Failed to load dashboard</p></div>';
+                        return;
+                    }
+                    var orders = result.data || result.orders || [];
+
+                    var pending = orders.filter(function(o) { return o.Status === 'Shipped' || o.Status === 'Out for Delivery'; });
+                    var delivered = orders.filter(function(o) { return o.Status === 'Delivered'; });
+
+                    var html = '<div class="stats-grid">';
+                    html += '<div class="stat-card"><div class="stat-icon gradient-blue"><i class="fa-solid fa-truck"></i></div><div class="stat-info"><span class="stat-number">' + pending.length + '</span><span class="stat-label">Active Deliveries</span></div></div>';
+                    html += '<div class="stat-card"><div class="stat-icon gradient-green"><i class="fa-solid fa-check-circle"></i></div><div class="stat-info"><span class="stat-number">' + delivered.length + '</span><span class="stat-label">Delivered Today</span></div></div>';
+                    html += '</div>';
+
+                    html += '<div class="grid-2"><div class="card"><div class="card-header"><h3><i class="fa-solid fa-truck"></i> Pending Deliveries</h3></div><div class="card-body">';
+                    if (pending.length > 0) {
+                        pending.forEach(function(o) {
+                            html += '<div class="delivery-card">';
+                            html += '<div class="delivery-card-header"><span class="order-id">#' + o.Order_ID + '</span>' + AdminApp.statusBadge(o.Status) + '</div>';
+                            html += '<div class="delivery-card-body"><p><i class="fa-solid fa-user"></i> ' + escapeHtml(o.CustomerName || 'Customer') + '</p>';
+                            html += '<p><i class="fa-solid fa-location-dot"></i> ' + escapeHtml(o.Delivery_Address || o.Address || 'No address') + '</p>';
+                            html += '<p><i class="fa-solid fa-coins"></i> GH\u20B5' + (o.Total_Amount || o.Total || 0).toFixed(2) + '</p></div>';
+                            html += '<div class="delivery-card-actions">';
+                            html += '<a href="orders.html" class="btn btn-sm btn-primary"><i class="fa-solid fa-arrow-right"></i> View</a>';
+                            html += '</div></div>';
+                        });
+                    } else {
+                        html += '<div class="empty-state"><div class="empty-state-icon"><i class="fa-solid fa-check-double"></i></div><p>No pending deliveries</p></div>';
+                    }
+                    html += '</div></div>';
+
+                    html += '<div class="card"><div class="card-header"><h3><i class="fa-solid fa-clock-rotate-left"></i> Recent Deliveries</h3></div><div class="card-body">';
+                    if (delivered.length > 0) {
+                        delivered.slice(0, 5).forEach(function(o) {
+                            html += '<div class="list-item"><div><strong>#' + o.Order_ID + '</strong> - ' + escapeHtml(o.CustomerName || 'Customer') + '</div><div>' + AdminApp.statusBadge('Delivered') + '</div></div>';
+                        });
+                    } else {
+                        html += '<div class="empty-state"><div class="empty-state-icon"><i class="fa-solid fa-inbox"></i></div><p>No delivered orders yet</p></div>';
+                    }
+                    html += '</div></div></div>';
+
+                    content.innerHTML = html;
+                } catch (err) {
+                    content.innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i class="fa-solid fa-triangle-exclamation"></i></div><p>Error loading dashboard</p></div>';
+                }
+            }
+
+            loadDeliveryDashboard();
+        });
+    </script>
+</body>
+</html>

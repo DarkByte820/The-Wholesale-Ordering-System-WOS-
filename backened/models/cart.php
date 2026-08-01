@@ -26,7 +26,6 @@ class Cart {
     if (!$stmt) {
         die("SQL Error: " . $this->db->error);
     }
-echo "UserID: $UserID, Product ID: $product_id, Quantity: $quantity, Item Type: $item_type, Package ID: $package_id, Added At: $added_at";
     $stmt->bind_param(
         "iiisis",
         $UserID,
@@ -47,12 +46,18 @@ echo "UserID: $UserID, Product ID: $product_id, Quantity: $quantity, Item Type: 
 
         $sql = "
             SELECT
-                cart_id,
-                p.Product_id,
-                quantity,
-                item_type,
-                package_id,
-                added_at
+                c.cart_id,
+                c.product_id,
+                c.quantity,
+                c.item_type,
+                c.package_id,
+                c.added_at,
+                p.Name,
+                p.Description,
+                p.Unit_Price,
+                p.Wholesale_Price,
+                p.Category_ID,
+                p.Status
 
             FROM cart c
 

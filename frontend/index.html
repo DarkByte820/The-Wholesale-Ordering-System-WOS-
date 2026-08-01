@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghana Warehouse Connect - Shop Direct from Warehouse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/animations.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <a href="../index.html" class="logo">
+                        <span class="logo-icon"><i class="fa-solid fa-warehouse"></i></span>
+                        <span class="logo-text">GWC</span>
+                    </a>
+
+                    <div class="search-container">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search products, categories..." aria-label="Search products">
+                        <select id="categoryFilter" class="search-category" aria-label="Filter by category">
+                            <option value="">All Categories</option>
+                        </select>
+                        <button class="search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+
+                    <div class="header-actions">
+                        <a href="./public/login.html" class="action-link" aria-label="Account">
+                            <span class="icon"><i class="fa-solid fa-user"></i></span>
+                            <span id="accountText">Account</span>
+                        </a>
+                        <a href="./public/wishlist.html" class="action-link" aria-label="Wishlist">
+                            <span class="icon"><i class="fa-solid fa-heart"></i></span>
+                            <span class="badge" id="wishlistCount" style="display:none">0</span>
+                        </a>
+                        <a href="./public/cart.html" class="action-link cart-link" aria-label="Cart">
+                            <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+                            <span class="badge" id="cartCount" style="display:none">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="category-nav">
+            <div class="container">
+                <div class="category-links" id="categoryLinks"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="hero-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slides" id="carouselSlides"></div>
+                <button class="carousel-btn prev" id="prevBtn" aria-label="Previous slide"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="carousel-btn next" id="nextBtn" aria-label="Next slide"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="product-rail">
+                <div class="rail-header">
+                    <h2><i class="fa-solid fa-bolt"></i> Flash Sales</h2>
+                    <div class="countdown-timer" id="flashSaleTimer">
+                        <span>Ends in: <span id="timerText">05:00</span></span>
+                    </div>
+                    <a href="./public/category.html?sale=flash" class="view-all">View All <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="products-scroll" id="flashSalesContainer"></div>
+            </section>
+
+            <section class="product-rail">
+                <div class="rail-header">
+                    <h2><i class="fa-solid fa-crosshairs"></i> Recommended For You</h2>
+                    <a href="./public/category.html" class="view-all">View All <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="products-scroll" id="recommendedContainer"></div>
+            </section>
+
+            <section class="category-grid">
+                <h2>Shop by Category</h2>
+                <div class="categories" id="categoryGrid"></div>
+            </section>
+
+            <section class="product-rail">
+                <div class="rail-header">
+                    <h2><i class="fa-solid fa-trophy"></i> Top Deals</h2>
+                    <a href="./public/category.html?sort=deals" class="view-all">View All <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="products-scroll" id="topDealsContainer"></div>
+            </section>
+
+            <section class="product-rail">
+                <div class="rail-header">
+                    <h2><i class="fa-solid fa-sparkles"></i> New Arrivals</h2>
+                    <a href="./public/category.html?sort=newest" class="view-all">View All <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="products-scroll" id="newArrivalsContainer"></div>
+            </section>
+        </div>
+    </main>
+
+    <section class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get exclusive deals and updates delivered to your inbox</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter">
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About GWC</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Help & Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Payment Methods</h4>
+                    <ul>
+                        <li><a href="#">Mobile Money</a></li>
+                        <li><a href="#">Credit/Debit Card</a></li>
+                        <li><a href="#">Bank Transfer</a></li>
+                        <li><a href="#">Cash on Delivery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ghana Warehouse Connect. All rights reserved.</p>
+                <div class="trust-badges">
+                    <span class="badge-item"><i class="fa-solid fa-lock"></i> Secure Checkout</span>
+                    <span class="badge-item"><i class="fa-solid fa-circle-check"></i> Verified Sellers</span>
+                    <span class="badge-item"><i class="fa-solid fa-truck-fast"></i> Fast Delivery</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/utils.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/cart.js"></script>
+    <script src="./js/wishlist.js"></script>
+    <script src="./js/components.js"></script>
+    <script src="./js/validation.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            showLoading('flashSalesContainer');
+            showLoading('recommendedContainer');
+            showLoading('topDealsContainer');
+            showLoading('newArrivalsContainer');
+            showLoading('categoryGrid');
+
+            try {
+                var productsResponse = await API.getProducts();
+                if (productsResponse.success && productsResponse.data) {
+                    var products = Array.isArray(productsResponse.data) ? productsResponse.data : (productsResponse.data.products || []);
+                    displayFlashSales(products);
+                    displayRecommended(products);
+                    displayTopDeals(products);
+                    displayNewArrivals(products);
+                } else {
+                    displayFallbackProducts();
+                }
+            } catch (e) {
+                displayFallbackProducts();
+            }
+
+            try {
+                var categoriesResponse = await API.getProducts();
+                if (categoriesResponse.success && categoriesResponse.data) {
+                    var allProducts = Array.isArray(categoriesResponse.data) ? categoriesResponse.data : (categoriesResponse.data.products || []);
+                    var cats = [];
+                    var seen = {};
+                    allProducts.forEach(function(p) {
+                        var c = p.Category || p.category;
+                        if (c && !seen[c]) { seen[c] = true; cats.push(c); }
+                    });
+                    if (cats.length > 0) {
+                        displayCategories(cats);
+                        displayCategoryNav(cats);
+                        populateSearchCategories(cats);
+                    } else {
+                        displayDefaultCategories();
+                    }
+                } else {
+                    displayDefaultCategories();
+                }
+            } catch (e) {
+                displayDefaultCategories();
+            }
+
+            updateCartCount();
+            updateWishlistCount();
+        });
+
+        function displayFlashSales(products) {
+            var container = document.getElementById('flashSalesContainer');
+            var items = products.slice(0, 8);
+            container.innerHTML = items.map(function(p) { return createProductCard(p, { isFlashSale: true }); }).join('');
+        }
+
+        function displayRecommended(products) {
+            var container = document.getElementById('recommendedContainer');
+            var items = products.slice(2, 10);
+            container.innerHTML = items.map(function(p) { return createProductCard(p); }).join('');
+        }
+
+        function displayTopDeals(products) {
+            var container = document.getElementById('topDealsContainer');
+            var items = products.slice().sort(function() { return Math.random() - 0.5; }).slice(0, 8);
+            container.innerHTML = items.map(function(p) { return createProductCard(p); }).join('');
+        }
+
+        function displayNewArrivals(products) {
+            var container = document.getElementById('newArrivalsContainer');
+            var items = products.slice().reverse().slice(0, 8);
+            container.innerHTML = items.map(function(p) { return createProductCard(p); }).join('');
+        }
+
+        function displayCategories(categories) {
+            var grid = document.getElementById('categoryGrid');
+            var icons = {
+                'Grains': '<i class="fa-solid fa-wheat-awn"></i>', 'Oils': '<i class="fa-solid fa-droplet"></i>',
+                'Dairy': '<i class="fa-solid fa-cheese"></i>', 'Beverages': '<i class="fa-solid fa-mug-hot"></i>',
+                'Condiments': '<i class="fa-solid fa-jar"></i>', 'Sweeteners': '<i class="fa-solid fa-cubes-stacked"></i>',
+                'Legumes': '<i class="fa-solid fa-seedling"></i>', 'Spreads': '<i class="fa-solid fa-bowl-food"></i>',
+                'Seasonings': '<i class="fa-solid fa-mortar-pestle"></i>', 'Carbohydrates': '<i class="fa-solid fa-bread-slice"></i>'
+            };
+            grid.innerHTML = categories.map(function(cat) {
+                return '<a href="./public/category.html?category=' + encodeURIComponent(cat) + '" class="category-card">' +
+                    '<span class="category-icon">' + (icons[cat] || '<i class="fa-solid fa-box"></i>') + '</span>' +
+                    '<span class="category-name">' + escapeHtml(cat) + '</span></a>';
+            }).join('');
+        }
+
+        function displayCategoryNav(categories) {
+            var nav = document.getElementById('categoryLinks');
+            nav.innerHTML = categories.map(function(cat) {
+                return '<a href="./public/category.html?category=' + encodeURIComponent(cat) + '" class="category-link">' + escapeHtml(cat) + '</a>';
+            }).join('');
+        }
+
+        function populateSearchCategories(categories) {
+            var select = document.getElementById('categoryFilter');
+            categories.forEach(function(cat) {
+                var opt = document.createElement('option');
+                opt.value = cat;
+                opt.textContent = cat;
+                select.appendChild(opt);
+            });
+        }
+
+        function displayDefaultCategories() {
+            var defaults = ['Grains', 'Oils', 'Dairy', 'Beverages', 'Condiments', 'Seasonings'];
+            displayCategories(defaults);
+            displayCategoryNav(defaults);
+            populateSearchCategories(defaults);
+            document.getElementById('flashSalesContainer').innerHTML = createProductCardSkeleton() + createProductCardSkeleton() + createProductCardSkeleton() + createProductCardSkeleton();
+            document.getElementById('recommendedContainer').innerHTML = createProductCardSkeleton() + createProductCardSkeleton() + createProductCardSkeleton() + createProductCardSkeleton();
+            document.getElementById('topDealsContainer').innerHTML = createProductCardSkeleton() + createProductCardSkeleton() + createProductCardSkeleton() + createProductCardSkeleton();
+            document.getElementById('newArrivalsContainer').innerHTML = createProductCardSkeleton() + createProductCardSkeleton() + createProductCardSkeleton() + createProductCardSkeleton();
+        }
+
+        function displayFallbackProducts() {
+            displayDefaultCategories();
+        }
+
+        var currentSlide = 0;
+        var carouselItems = [
+            { title: 'Flash Sale', subtitle: 'Get 50% off on selected items', bg: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)' },
+            { title: 'Free Delivery', subtitle: 'On orders over GHS 100', bg: 'linear-gradient(135deg, #059669 0%, #047857 100%)' },
+            { title: 'New Arrivals', subtitle: 'Check out our latest products', bg: 'linear-gradient(135deg, #d97706 0%, #b45309 100%)' }
+        ];
+
+        (function initCarousel() {
+            var slides = document.getElementById('carouselSlides');
+            var dots = document.getElementById('carouselDots');
+
+            slides.innerHTML = carouselItems.map(function(item, idx) {
+                return '<div class="carousel-slide' + (idx === 0 ? ' active' : '') + '" style="background: ' + item.bg + '">' +
+                    '<div class="slide-overlay"></div>' +
+                    '<div class="slide-content">' +
+                    '<h1>' + item.title + '</h1>' +
+                    '<p>' + item.subtitle + '</p>' +
+                    '<a href="./public/category.html" class="btn btn-primary">Shop Now</a>' +
+                    '</div></div>';
+            }).join('');
+
+            dots.innerHTML = carouselItems.map(function(_, idx) {
+                return '<span class="dot' + (idx === 0 ? ' active' : '') + '" onclick="goToSlide(' + idx + ')" role="button" aria-label="Slide ' + (idx + 1) + '"></span>';
+            }).join('');
+
+            setInterval(function() {
+                currentSlide = (currentSlide + 1) % carouselItems.length;
+                goToSlide(currentSlide);
+            }, 5000);
+        })();
+
+        function goToSlide(n) {
+            currentSlide = n;
+            var slides = document.querySelectorAll('.carousel-slide');
+            var dots = document.querySelectorAll('.dot');
+            slides.forEach(function(s) { s.classList.remove('active'); });
+            dots.forEach(function(d) { d.classList.remove('active'); });
+            if (slides[n]) slides[n].classList.add('active');
+            if (dots[n]) dots[n].classList.add('active');
+            document.getElementById('carouselSlides').style.transform = 'translateX(-' + (n * 100) + '%)';
+        }
+
+        document.getElementById('prevBtn').addEventListener('click', function() {
+            var total = carouselItems.length;
+            goToSlide((currentSlide - 1 + total) % total);
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', function() {
+            goToSlide((currentSlide + 1) % carouselItems.length);
+        });
+
+        var timeLeft = 5 * 60;
+        setInterval(function() {
+            timeLeft--;
+            var mins = Math.floor(timeLeft / 60);
+            var secs = timeLeft % 60;
+            var timerText = document.getElementById('timerText');
+            if (timerText) {
+                timerText.textContent = String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+            }
+            if (timeLeft <= 0) timeLeft = 5 * 60;
+        }, 1000);
+
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showAlert('Thank you for subscribing!', 'success');
+            this.reset();
+        });
+
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                var query = this.value;
+                var cat = document.getElementById('categoryFilter').value;
+                var url = './public/category.html?search=' + encodeURIComponent(query);
+                if (cat) url += '&category=' + encodeURIComponent(cat);
+                window.location.href = url;
+            }
+        });
+
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            var query = document.getElementById('searchInput').value;
+            var cat = document.getElementById('categoryFilter').value;
+            if (query || cat) {
+                var url = './public/category.html';
+                var params = [];
+                if (query) params.push('search=' + encodeURIComponent(query));
+                if (cat) params.push('category=' + encodeURIComponent(cat));
+                window.location.href = url + '?' + params.join('&');
+            }
+        });
+    </script>
+</body>
+</html>

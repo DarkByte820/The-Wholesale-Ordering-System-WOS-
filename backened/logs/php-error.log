@@ -1223,3 +1223,114 @@ Stack trace:
 [17-Jul-2026 19:17:26 Europe/Berlin] PHP Warning:  Undefined variable $path in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 197
 [17-Jul-2026 19:18:57 Europe/Berlin] PHP Warning:  Undefined variable $path in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 197
 [17-Jul-2026 19:19:48 Europe/Berlin] PHP Warning:  Undefined variable $path in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php on line 197
+[23-Jul-2026 00:06:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:22
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(15): Product->getAllProducts(1, 10, NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(73): ProductController::getAllProducts()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 22
+[23-Jul-2026 00:14:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:27
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(15): Product->getAllProducts(1, 10, NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(73): ProductController::getAllProducts()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 27
+[24-Jul-2026 18:14:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:36
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(30): Product->getProductById(0)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(97): ProductController::getProductById()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 36
+[24-Jul-2026 18:14:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:36
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(30): Product->getProductById(0)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(97): ProductController::getProductById()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 36
+[25-Jul-2026 22:47:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:45
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(15): Product->getAllProducts(1, 10, NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(73): ProductController::getAllProducts()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 45
+[25-Jul-2026 22:50:05 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:44
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(15): Product->getAllProducts(1, 10, NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(73): ProductController::getAllProducts()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 44
+[25-Jul-2026 22:52:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:45
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(15): Product->getAllProducts(1, 10, NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(73): ProductController::getAllProducts()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 45
+[25-Jul-2026 22:53:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:46
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(15): Product->getAllProducts(1, 10, NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(73): ProductController::getAllProducts()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 46
+[25-Jul-2026 22:54:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:46
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(15): Product->getAllProducts(1, 10, NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(73): ProductController::getAllProducts()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 46
+[25-Jul-2026 22:55:18 Europe/Berlin] PHP Warning:  Undefined variable $setactive in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 44
+[25-Jul-2026 22:55:18 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: null & string in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:44
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(15): Product->getAllProducts(1, 10, NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(73): ProductController::getAllProducts()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 44
+[25-Jul-2026 22:56:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:46
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(15): Product->getAllProducts(1, 10, NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(73): ProductController::getAllProducts()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 46
+[25-Jul-2026 22:56:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:46
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(15): Product->getAllProducts(1, 10, NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(73): ProductController::getAllProducts()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 46
+[25-Jul-2026 22:57:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php:46
+Stack trace:
+#0 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\controllers\productcontroller.php(15): Product->getAllProducts(1, 10, NULL)
+#1 C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\index.php(73): ProductController::getAllProducts()
+#2 {main}
+  thrown in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\models\product.php on line 46
+[31-Jul-2026 18:11:35 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:11:35 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:11:39 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:11:39 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:11:43 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:11:43 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:11:47 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:11:47 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:11:51 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:11:51 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:12:02 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:12:02 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:12:07 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:12:07 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:12:11 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:12:11 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:12:31 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:12:31 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:12:38 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:12:38 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:12:42 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:12:42 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:12:51 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:12:51 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:12:56 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:12:56 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:20:44 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:20:44 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:21:05 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:21:05 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it
+[31-Jul-2026 18:22:39 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\user\Desktop\Ghana Warehouse-Connect\backened\utils\database.php on line 19
+[31-Jul-2026 18:22:39 Europe/Berlin] Database Error: Connection failed: No connection could be made because the target machine actively refused it

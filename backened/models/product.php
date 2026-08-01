@@ -11,23 +11,44 @@ class Product {
         $this->db = $database->connect();
     }
     
-    public function getAllProducts($page = 1, $limit = ITEMS_PER_PAGE, $category = null) {
+
+    public function getAllProducts($page = 1, $limit = ITEMS_PER_PAGE, $category = null, $active = null ) {
         $offset = ($page - 1) * $limit;
-        
-        if ($category) {
-            $stmt = $this->db->prepare("SELECT * FROM products WHERE Category = ? AND Status = 'Active' LIMIT ? OFFSET ?");
-            $stmt->bind_param("sii", $category, $limit, $offset);
-        } else {
-            $stmt = $this->db->prepare("SELECT * FROM products WHERE Status = 'Active' LIMIT ? OFFSET ?");
-            $stmt->bind_param("ii", $limit, $offset);
+        $sql = "SELECT p.*, c.Name as CategoryName , i.stock_quantity FROM products p
+               left JOIN categories c on c.category_id = p.category_id
+                left JOIN inventory i on i.product_id = p.product_id";
+
+        $where =[];
+        $params = [];
+        $types = "";
+        if($active !== null){
+            $where[] = "p.Status = ?";
+            $params[] = $active;
+            $types .="s"; 
+        } 
+
+        if($category !== null){
+            $where[] = "p.category_id = ?";
+            $params[] = $category;
+            $types .="i"; 
         }
         
+        if(!empty($where)){
+            $sql .= "WHere ".implode(" And ",$where);
+        }
+
+        $sql .= " Limit ? offset ?";
+        $params[] = $limit;
+        $params[] = $offset;
+        $types = "ii";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bind_param($types, ...$params);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
     
     public function getProductById($product_id) {
-        $stmt = $this->db->prepare("SELECT * FROM products WHERE ProductID = ? AND Status = 'Active'");
+        $stmt = $this->db->prepare("SELECT * FROM products WHERE product_id = ? AND Status = 'Active'");
         $stmt->bind_param("i", $product_id);
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
@@ -63,12 +84,12 @@ class Product {
     }
     
     public function updateProduct($product_id, $name, $unit_Price, $wholesale_Price, $status) {
-        $stmt = $this->db->prepare("UPDATE products SET Name = ?, Unit_Price = ?, Wholesale_Price = ?, Status = ? WHERE Product_ID = ?");
+        $stmt = $this->db->prepare("UPDATE products SET Name = ?, Unit_Price = ?, Wholesale_Price = ?, Status = ? WHERE product_id = ?");
         $stmt->bind_param("sddsi", $name, $unit_Price, $wholesale_Price, $status, $product_id);
         return $stmt->execute();
     }
     public function deleteProduct($product_id) {
-        $stmt = $this->db->prepare("UPDATE products SET Status = 'Inactive' WHERE Product_ID = ?");
+        $stmt = $this->db->prepare("UPDATE products SET Status = 'Inactive' WHERE product_id = ?");
         $stmt->bind_param("i", $product_id);
         return $stmt->execute();
     }

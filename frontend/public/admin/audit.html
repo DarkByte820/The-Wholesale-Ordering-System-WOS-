@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Logs - System Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+</head>
+<body>
+    <div class="admin-layout" id="adminLayout"></div>
+
+    <script src="../../js/utils.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="../../js/api.js"></script>
+    <script src="../../js/components.js"></script>
+    <script src="../../js/admin.js"></script>
+    <script>
+        var allLogs = [];
+        var searchTerm = '';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!AdminApp.requireSystemAdmin()) return;
+            var content = AdminApp.initLayout('Audit Logs', 'audit');
+
+            var html = '<div class="page-header">';
+            html += '<div class="page-header-left"><input type="text" id="searchBox" placeholder="Search logs..." oninput="searchLogs(this.value)"></div>';
+            html += '</div>';
+            html += '<div id="logTable"></div>';
+            content.innerHTML = html;
+
+            loadLogs();
+        });
+
+        async function loadLogs() {
+            var result = await API.getAuditLogs();
+            if (result.success) allLogs = result.data || result.logs || [];
+            renderTable();
+        }
+
+        function renderTable() {
+            var filtered = allLogs.filter(function(l) {
+                return !searchTerm || JSON.stringify(l).toLowerCase().indexOf(searchTerm) !== -1;
+            });
+
+            if (filtered.length === 0) {
+                document.getElementById('logTable').innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i class="fa-solid fa-shield-halved"></i></div><p>No audit logs found</p></div>';
+                return;
+            }
+
+            var html = '<table class="data-table"><thead><tr><th>ID</th><th>User</th><th>Action</th><th>Details</th><th>Timestamp</th></tr></thead><tbody>';
+            filtered.forEach(function(l) {
+                html += '<tr>';
+                html += '<td>#' + (l.Log_ID || l.ID) + '</td>';
+                html += '<td>' + escapeHtml(l.UserName || l.User_ID || '-') + '</td>';
+                html += '<td><span class="status-badge status-info">' + escapeHtml(l.Action) + '</span></td>';
+                html += '<td>' + escapeHtml(l.Details || l.Description || '-') + '</td>';
+                html += '<td>' + (l.Timestamp || l.Created_At || '-') + '</td>';
+                html += '</tr>';
+            });
+            html += '</tbody></table>';
+            document.getElementById('logTable').innerHTML = html;
+        }
+
+        function searchLogs(val) { searchTerm = val.toLowerCase(); renderTable(); }
+    </script>
+</body>
+</html>

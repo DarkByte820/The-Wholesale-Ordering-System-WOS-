@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+</head>
+<body>
+    <div class="admin-layout" id="adminLayout"></div>
+
+    <div class="modal-overlay" id="productModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add Product</h3>
+                <button class="modal-close" onclick="AdminApp.hideModal('productModal')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="productForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="pName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="pCategory">
+                            <option value="Electronics">Electronics</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="Food">Food</option>
+                            <option value="Home">Home & Garden</option>
+                            <option value="Beauty">Beauty</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Price (GH&#8373;)</label>
+                        <input type="number" id="pPrice" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity</label>
+                        <input type="number" id="pQuantity" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="pDescription" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="text" id="pImage">
+                    </div>
+                    <div class="form-group">
+                        <label>Wholesale Price (GH&#8373;)</label>
+                        <input type="number" id="pWholesalePrice" step="0.01" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Wholesale Min Qty</label>
+                        <input type="number" id="pWholesaleMin" min="1" value="1">
+                    </div>
+                </div>
+                <input type="hidden" id="pId">
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" onclick="AdminApp.hideModal('productModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../../js/utils.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="../../js/api.js"></script>
+    <script src="../../js/components.js"></script>
+    <script src="../../js/admin.js"></script>
+    <script>
+        var allProducts = [];
+        var searchTerm = '';
+        var categoryFilter = '';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!AdminApp.requireAdmin()) return;
+            var content = AdminApp.initLayout('Products', 'products');
+
+            var html = '<div class="page-header">';
+            html += '<div class="page-header-left"><input type="text" id="searchBox" placeholder="Search products..." oninput="searchProducts(this.value)"></div>';
+            html += '<div class="page-header-right">';
+            html += '<select id="categoryFilter" onchange="filterCategory(this.value)"><option value="">All Categories</option><option value="Electronics">Electronics</option><option value="Fashion">Fashion</option><option value="Food">Food</option><option value="Home">Home & Garden</option><option value="Beauty">Beauty</option><option value="Sports">Sports</option></select>';
+            html += '<button class="btn btn-primary" onclick="openAddModal()"><i class="fa-solid fa-plus"></i> Add Product</button>';
+            html += '</div></div>';
+            html += '<div id="productTable"></div>';
+            content.innerHTML = html;
+
+            loadProducts();
+        });
+
+        async function loadProducts() {
+            var result = await API.getProducts();
+            if (result.success) allProducts = result.data || result.products || [];
+            renderTable();
+        }
+
+        function renderTable() {
+            var filtered = allProducts.filter(function(p) {
+                var matchSearch = !searchTerm || (p.Name || '').toLowerCase().indexOf(searchTerm) !== -1;
+                var matchCat = !categoryFilter || p.Category === categoryFilter;
+                return matchSearch && matchCat;
+            });
+
+            if (filtered.length === 0) {
+                document.getElementById('productTable').innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i class="fa-solid fa-inbox"></i></div><p>No products found</p></div>';
+                return;
+            }
+
+            var html = '<table class="data-table"><thead><tr><th>ID</th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th></tr></thead><tbody>';
+            filtered.forEach(function(p) {
+                var stockClass = p.stock_quantity <= 10 ? 'danger' : (p.stock_quantity <= 25 ? 'warning' : 'success');
+                html += '<tr>';
+                html += '<td>#' + p.product_id + '</td>';
+                html += '<td>' + escapeHtml(p.name || '-') + '</td>';
+                html += '<td>' + escapeHtml(p.CategoryName || '-') + '</td>';
+                html += '<td>GH\u20B5' + parseFloat(p.unit_price || 0).toFixed(2) + '</td>';
+                html += '<td><span class="status-badge status-' + stockClass + '">' + (p.stock_quantity || 0) + '</span></td>';
+                html += '<td class="actions">';
+                html += '<button class="btn btn-sm btn-outline" onclick="editProduct(' + p.product_id + ')"><i class="fa-solid fa-pen"></i></button> ';
+                html += '<button class="btn btn-sm btn-danger" onclick="deleteProduct(' + p.product_id + ')"><i class="fa-solid fa-trash"></i></button>';
+                html += '</td></tr>';
+            });
+            html += '</tbody></table>';
+            document.getElementById('productTable').innerHTML = html;
+        }
+
+        function searchProducts(val) { searchTerm = val.toLowerCase(); renderTable(); }
+        function filterCategory(val) { categoryFilter = val; renderTable(); }
+
+        function openAddModal() {
+            document.getElementById('modalTitle').textContent = 'Add Product';
+            document.getElementById('pId').value = '';
+            document.getElementById('productForm').reset();
+            AdminApp.showModal('productModal');
+        }
+
+        function editProduct(id) {
+            var p = allProducts.find(function(x) { return x.Product_ID == id; });
+            if (!p) return;
+            document.getElementById('modalTitle').textContent = 'Edit Product';
+            document.getElementById('pId').value = p.product_id;
+            document.getElementById('pName').value = p.name || '';
+            document.getElementById('pCategory').value = p.CategoryName || 'Electronics';
+            document.getElementById('pPrice').value = p.unit_price || '';
+            document.getElementById('pQuantity').value = p.stock_quantity || 0;
+            document.getElementById('pDescription').value = p.description || '';
+            document.getElementById('pImage').value = p.Image_URL || '';
+            document.getElementById('pWholesalePrice').value = p.wholesale_price || '';
+            document.getElementById('pWholesaleMin').value = p.min_wholesale_qty || 1;
+            AdminApp.showModal('productModal');
+        }
+
+        async function deleteProduct(id) {
+            if (!confirm('Delete this product?')) return;
+            var result = await API.deleteProduct(id);
+            if (result.success) {
+                showAlert('Product deleted', 'success');
+                loadProducts();
+            } else {
+                showAlert(result.message || 'Delete failed', 'error');
+            }
+        }
+
+        document.getElementById('productForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            var id = document.getElementById('pId').value;
+            var data = {
+                name: document.getElementById('pName').value,
+                category: document.getElementById('pCategory').value,
+                price: parseFloat(document.getElementById('pPrice').value),
+                quantity: parseInt(document.getElementById('pQuantity').value),
+                description: document.getElementById('pDescription').value,
+                image_url: document.getElementById('pImage').value,
+                wholesale_price: parseFloat(document.getElementById('pWholesalePrice').value) || null,
+                wholesale_min_quantity: parseInt(document.getElementById('pWholesaleMin').value) || 1
+            };
+
+            var result;
+            if (id) {
+                result = await API.updateProduct(id, data);
+            } else {
+                result = await API.createProduct(data);
+            }
+
+            if (result.success) {
+                showAlert(id ? 'Product updated' : 'Product created', 'success');
+                AdminApp.hideModal('productModal');
+                loadProducts();
+            } else {
+                showAlert(result.message || 'Save failed', 'error');
+            }
+        });
+    </script>
+</body>
+</html>

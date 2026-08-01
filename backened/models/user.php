@@ -82,6 +82,44 @@ class User {
         $stmt->execute();
         return $stmt->get_result()->num_rows > 0;
     }
+
+    public function getUserByEmail($email) {
+        $stmt = $this->db->prepare("SELECT User_ID, Name, Email FROM users WHERE Email = ? AND Status = 'Active'");
+        if (!$stmt) return false;
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+
+    public function updatePassword($user_id, $password) {
+        $password_hash = password_hash($password, PASSWORD_BCRYPT);
+        $stmt = $this->db->prepare("UPDATE users SET Password_Hash = ? WHERE User_ID = ?");
+        if (!$stmt) return false;
+        $stmt->bind_param("si", $password_hash, $user_id);
+        return $stmt->execute();
+    }
+
+    public function createResetToken($user_id, $token, $expiry) {
+        $stmt = $this->db->prepare("INSERT INTO password_resets (User_ID, Token, Expires_At) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE Token = ?, Expires_At = ?");
+        if (!$stmt) return false;
+        $stmt->bind_param("isssi", $user_id, $token, $expiry, $token, $expiry);
+        return $stmt->execute();
+    }
+
+    public function getResetToken($token) {
+        $stmt = $this->db->prepare("SELECT User_ID, Expires_At FROM password_resets WHERE Token = ? AND Expires_At > NOW()");
+        if (!$stmt) return false;
+        $stmt->bind_param("s", $token);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+
+    public function deleteResetToken($token) {
+        $stmt = $this->db->prepare("DELETE FROM password_resets WHERE Token = ?");
+        if (!$stmt) return false;
+        $stmt->bind_param("s", $token);
+        return $stmt->execute();
+    }
 }
 
 ?>

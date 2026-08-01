@@ -83,7 +83,7 @@ class CustomerProfile {
     
     public function getWholesaleCustomers($page = 1, $limit = ITEMS_PER_PAGE) {
         $offset = ($page - 1) * $limit;
-        $customer_type = 'WholesaleCustomer';
+        $customer_type = 'wholesale_customer';
         
         $stmt = $this->db->prepare("SELECT cp.*, u.Name, u.Email, u.Phone FROM customer_profile cp JOIN user u ON cp.UserID = u.UserID WHERE cp.CustomerType = ? LIMIT ? OFFSET ?");
         
@@ -100,7 +100,7 @@ class CustomerProfile {
     public function getPendingVerifications() {
         $status = 'Pending';
         
-        $stmt = $this->db->prepare("SELECT cp.*, u.Name, u.Email FROM customer_profile cp JOIN user u ON cp.UserID = u.UserID WHERE cp.VerificationStatus = ? AND cp.CustomerType = 'WholesaleCustomer'");
+        $stmt = $this->db->prepare("SELECT cp.*, u.Name, u.Email FROM customer_profile cp JOIN user u ON cp.UserID = u.UserID WHERE cp.VerificationStatus = ? AND cp.CustomerType = 'wholesale_customer'");
         
         if (!$stmt) {
             error_log("Prepare failed: " . $this->db->error);
